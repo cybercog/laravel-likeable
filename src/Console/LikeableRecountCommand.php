@@ -13,7 +13,7 @@ namespace Cog\Likeable\Console;
 
 use Cog\Likeable\Contracts\HasLikes as HasLikesContract;
 use Cog\Likeable\Contracts\Like as LikeContract;
-use Cog\Likeable\Contracts\LikeCounter as LikeCounterContract;
+use Cog\Likeable\Contracts\LikersCounter as LikersCounterContract;
 use Cog\Likeable\Exceptions\ModelInvalidException;
 use Cog\Likeable\Services\LikeableService as LikeableServiceContract;
 use Illuminate\Console\Command;
@@ -104,11 +104,11 @@ class LikeableRecountCommand extends Command
     {
         $modelType = $this->normalizeModelType($modelType);
 
-        $counters = $this->service->fetchLikesCounters($modelType, $this->likeType);
+        $counters = $this->service->fetchLikersCounters($modelType, $this->likeType);
 
-        $this->service->removeLikeCountersOfType($modelType, $this->likeType);
+        $this->service->removeLikersCountersOfType($modelType, $this->likeType);
 
-        DB::table(app(LikeCounterContract::class)->getTable())->insert($counters);
+        DB::table(app(LikersCounterContract::class)->getTable())->insert($counters);
 
         $this->info('All [' . $modelType . '] records likes has been recounted.');
     }

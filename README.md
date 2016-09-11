@@ -78,13 +78,13 @@ $article->likeToggle($user->id);
 ##### Get model likes count
 
 ```php
-$article->likesCount;
+$article->likersCount;
 ```
 
 ##### Get model likes counter
 
 ```php
-$article->likesCounter;
+$article->likersCounter;
 ```
 
 ##### Get likes relation
@@ -111,7 +111,7 @@ $article->liked($user->id);
 
 ```php
 Article::whereLikedBy($user->id)
-	->with('likesCounter') // Allow eager load (optional)
+	->with('likersCounter') // Allow eager load (optional)
 	->get();
 ```
 
@@ -147,13 +147,13 @@ $article->dislikeToggle($user->id);
 ##### Get model dislikes count
 
 ```php
-$article->dislikesCount;
+$article->dislikersCount;
 ```
 
 ##### Get model dislikes counter
 
 ```php
-$article->dislikesCounter;
+$article->dislikersCounter;
 ```
 
 ##### Get dislikes relation
@@ -180,7 +180,7 @@ $article->disliked($user->id);
 
 ```php
 Article::whereDislikedBy($user->id)
-	->with('dislikesCounter') // Allow eager load (optional)
+	->with('dislikersCounter') // Allow eager load (optional)
 	->get();
 ```
 
@@ -195,7 +195,7 @@ $article->removeDislikes();
 ##### Get difference between likes and dislikes
 
 ```php
-$article->likesDiffDislikesCount;
+$article->likersDiffDislikersCount;
 ```
 
 ##### Get likes and dislikes relation

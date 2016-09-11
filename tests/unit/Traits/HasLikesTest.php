@@ -38,7 +38,7 @@ class HasLikesTest extends TestCase
 
         $entity->like();
 
-        $this->assertEquals(1, $entity->likesCount);
+        $this->assertEquals(1, $entity->likersCount);
         $this->assertEquals($user->id, $entity->likes->first()->user_id);
     }
 
@@ -53,7 +53,7 @@ class HasLikesTest extends TestCase
 
         $entity->like($user2->id);
 
-        $this->assertEquals(1, $entity->likesCount);
+        $this->assertEquals(1, $entity->likersCount);
         $this->assertEquals($user2->id, $entity->likes->first()->user_id);
     }
 
@@ -67,7 +67,7 @@ class HasLikesTest extends TestCase
         $entity->like(3);
         $entity->like(4);
 
-        $this->assertEquals(4, $entity->likesCount);
+        $this->assertEquals(4, $entity->likersCount);
     }
 
     /** @test */
@@ -78,7 +78,7 @@ class HasLikesTest extends TestCase
         $entity->like(1);
         $entity->like(1);
 
-        $this->assertEquals(1, $entity->likesCount);
+        $this->assertEquals(1, $entity->likersCount);
     }
 
     /** @test */
@@ -89,7 +89,7 @@ class HasLikesTest extends TestCase
 
         $entity->unlike(1);
 
-        $this->assertEquals(0, $entity->likesCount);
+        $this->assertEquals(0, $entity->likersCount);
     }
 
     /** @test */
@@ -100,7 +100,7 @@ class HasLikesTest extends TestCase
 
         $entity->unlike(2);
 
-        $this->assertEquals(1, $entity->likesCount);
+        $this->assertEquals(1, $entity->likersCount);
     }
 
     /** @test */
@@ -113,7 +113,7 @@ class HasLikesTest extends TestCase
 
         $entity->likeToggle();
 
-        $this->assertEquals(1, $entity->likesCount);
+        $this->assertEquals(1, $entity->likersCount);
         $this->assertEquals($user->id, $entity->likes->first()->user_id);
     }
 
@@ -128,7 +128,7 @@ class HasLikesTest extends TestCase
 
         $entity->likeToggle();
 
-        $this->assertEquals(0, $entity->likesCount);
+        $this->assertEquals(0, $entity->likersCount);
     }
 
     /** @test */
@@ -137,7 +137,7 @@ class HasLikesTest extends TestCase
         $entity = factory(Entity::class)->create();
 
         $entity->likeToggle(1);
-        $this->assertEquals(1, $entity->likesCount);
+        $this->assertEquals(1, $entity->likersCount);
     }
 
     /** @test */
@@ -147,7 +147,7 @@ class HasLikesTest extends TestCase
         $entity->like(1);
 
         $entity->likeToggle(1);
-        $this->assertEquals(0, $entity->likesCount);
+        $this->assertEquals(0, $entity->likersCount);
     }
 
     /** @test */
@@ -222,7 +222,7 @@ class HasLikesTest extends TestCase
 
         $entity->dislike();
 
-        $this->assertEquals(1, $entity->dislikesCount);
+        $this->assertEquals(1, $entity->dislikersCount);
         $this->assertEquals($user->id, $entity->dislikes->first()->user_id);
     }
 
@@ -237,7 +237,7 @@ class HasLikesTest extends TestCase
 
         $entity->dislike($user2->id);
 
-        $this->assertEquals(1, $entity->dislikesCount);
+        $this->assertEquals(1, $entity->dislikersCount);
         $this->assertEquals($user2->id, $entity->dislikes->first()->user_id);
     }
 
@@ -251,7 +251,7 @@ class HasLikesTest extends TestCase
         $entity->dislike(3);
         $entity->dislike(4);
 
-        $this->assertEquals(4, $entity->dislikesCount);
+        $this->assertEquals(4, $entity->dislikersCount);
     }
 
     /** @test */
@@ -262,7 +262,7 @@ class HasLikesTest extends TestCase
         $entity->dislike(1);
         $entity->dislike(1);
 
-        $this->assertEquals(1, $entity->dislikesCount);
+        $this->assertEquals(1, $entity->dislikersCount);
     }
 
     /** @test */
@@ -273,7 +273,7 @@ class HasLikesTest extends TestCase
 
         $entity->undislike(1);
 
-        $this->assertEquals(0, $entity->dislikesCount);
+        $this->assertEquals(0, $entity->dislikersCount);
     }
 
     /** @test */
@@ -284,7 +284,7 @@ class HasLikesTest extends TestCase
 
         $entity->undislike(2);
 
-        $this->assertEquals(1, $entity->dislikesCount);
+        $this->assertEquals(1, $entity->dislikersCount);
     }
 
     /** @test */
@@ -297,7 +297,7 @@ class HasLikesTest extends TestCase
 
         $entity->dislikeToggle();
 
-        $this->assertEquals(1, $entity->dislikesCount);
+        $this->assertEquals(1, $entity->dislikersCount);
         $this->assertEquals($user->id, $entity->dislikes->first()->user_id);
     }
 
@@ -312,7 +312,7 @@ class HasLikesTest extends TestCase
 
         $entity->dislikeToggle();
 
-        $this->assertEquals(0, $entity->dislikesCount);
+        $this->assertEquals(0, $entity->dislikersCount);
     }
 
     /** @test */
@@ -321,7 +321,7 @@ class HasLikesTest extends TestCase
         $entity = factory(Entity::class)->create();
 
         $entity->dislikeToggle(1);
-        $this->assertEquals(1, $entity->dislikesCount);
+        $this->assertEquals(1, $entity->dislikersCount);
     }
 
     /** @test */
@@ -331,7 +331,7 @@ class HasLikesTest extends TestCase
         $entity->dislike(1);
 
         $entity->dislikeToggle(1);
-        $this->assertEquals(0, $entity->dislikesCount);
+        $this->assertEquals(0, $entity->dislikersCount);
     }
 
     /** @test */
@@ -439,6 +439,6 @@ class HasLikesTest extends TestCase
         $entity->dislike(2);
         $entity->dislike(3);
 
-        $this->assertEquals(-1, $entity->likesDiffDislikesCount);
+        $this->assertEquals(-1, $entity->likersDiffDislikersCount);
     }
 }

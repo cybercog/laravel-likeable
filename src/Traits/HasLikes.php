@@ -13,7 +13,7 @@ namespace Cog\Likeable\Traits;
 
 use Cog\Likeable\Contracts\Like as LikeContract;
 use Cog\Likeable\Contracts\LikeableService as LikeableServiceContract;
-use Cog\Likeable\Contracts\LikeCounter as LikeCounterContract;
+use Cog\Likeable\Contracts\LikersCounter as LikersCounterContract;
 use Cog\Likeable\Enums\LikeType;
 use Cog\Likeable\Observers\ModelObserver;
 
@@ -65,45 +65,45 @@ trait HasLikes
     }
 
     /**
-     * Counter is a record that stores the total likes for the morphed record.
+     * Counter is a record that stores the total likers count for the morphed record.
      *
      * @return \Illuminate\Database\Eloquent\Relations\MorphOne
      */
-    public function likesCounter()
+    public function likersCounter()
     {
-        return $this->morphOne(app(LikeCounterContract::class), 'likeable')
+        return $this->morphOne(app(LikersCounterContract::class), 'likeable')
             ->where('type_id', LikeType::LIKE);
     }
 
     /**
-     * Counter is a record that stores the total dislikes for the morphed record.
+     * Counter is a record that stores the total dislikers count for the morphed record.
      *
      * @return \Illuminate\Database\Eloquent\Relations\MorphOne
      */
-    public function dislikesCounter()
+    public function dislikersCounter()
     {
-        return $this->morphOne(app(LikeCounterContract::class), 'likeable')
+        return $this->morphOne(app(LikersCounterContract::class), 'likeable')
             ->where('type_id', LikeType::DISLIKE);
     }
 
     /**
-     * Model likesCount attribute.
+     * Model likersCount attribute.
      *
      * @return int
      */
-    public function getLikesCountAttribute()
+    public function getLikersCountAttribute()
     {
-        return $this->likesCounter ? $this->likesCounter->count : 0;
+        return $this->likersCounter ? $this->likersCounter->count : 0;
     }
 
     /**
-     * Model dislikesCount attribute.
+     * Model dislikersCount attribute.
      *
      * @return int
      */
-    public function getDislikesCountAttribute()
+    public function getDislikersCountAttribute()
     {
-        return $this->dislikesCounter ? $this->dislikesCounter->count : 0;
+        return $this->dislikersCounter ? $this->dislikersCounter->count : 0;
     }
 
     /**
@@ -131,9 +131,9 @@ trait HasLikes
      *
      * @return int
      */
-    public function getLikesDiffDislikesCountAttribute()
+    public function getLikersDiffDislikersCountAttribute()
     {
-        return $this->likesCount - $this->dislikesCount;
+        return $this->likersCount - $this->dislikersCount;
     }
 
     /**

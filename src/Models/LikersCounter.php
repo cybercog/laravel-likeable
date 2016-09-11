@@ -11,17 +11,17 @@
 
 namespace Cog\Likeable\Models;
 
-use Cog\Likeable\Contracts\LikeCounter as LikeCounterContract;
+use Cog\Likeable\Contracts\LikersCounter as LikersCounterContract;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class LikeCounter.
+ * Class LikersCounter.
  *
  * @property int type_id
  * @property int count
  * @package Cog\Likeable\Models
  */
-class LikeCounter extends Model implements LikeCounterContract
+class LikersCounter extends Model implements LikersCounterContract
 {
     /**
      * Indicates if the model should be timestamped.
@@ -35,7 +35,7 @@ class LikeCounter extends Model implements LikeCounterContract
      *
      * @var string
      */
-    protected $table = 'like_counter';
+    protected $table = 'likers_counter';
 
     /**
      * The attributes that are mass assignable.

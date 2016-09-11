@@ -13,7 +13,7 @@ namespace Cog\Likeable\Tests\Unit\Observers;
 
 use Cog\Likeable\Contracts\HasLikes as HasLikesContract;
 use Cog\Likeable\Models\Like;
-use Cog\Likeable\Models\LikeCounter;
+use Cog\Likeable\Models\LikersCounter;
 use Cog\Likeable\Observers\ModelObserver;
 use Cog\Likeable\Tests\Stubs\Models\Entity;
 use Cog\Likeable\Tests\TestCase;
@@ -67,9 +67,9 @@ class ModelObserverTest extends TestCase
         $entity1->delete();
 
         $entity1Likes = Like::whereIn('id', $entity1Likes->pluck('id'))->get();
-        $likeCounter = LikeCounter::all();
+        $likersCounter = LikersCounter::all();
 
         $this->assertCount(0, $entity1Likes);
-        $this->assertCount(1, $likeCounter);
+        $this->assertCount(1, $likersCounter);
     }
 }

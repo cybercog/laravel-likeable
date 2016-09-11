@@ -11,20 +11,20 @@
 
 namespace Cog\Likeable\Tests\Unit\Models;
 
-use Cog\Likeable\Models\LikeCounter;
+use Cog\Likeable\Models\LikersCounter;
 use Cog\Likeable\Tests\TestCase;
 
 /**
- * Class LikeCounterTest.
+ * Class LikersCounterTest.
  *
  * @package Cog\Likeable\Tests\Unit\Models
  */
-class LikeCounterTest extends TestCase
+class LikersCounterTest extends TestCase
 {
     /** @test */
     public function it_can_fill_count()
     {
-        $counter = new LikeCounter([
+        $counter = new LikersCounter([
             'count' => 4,
         ]);
 
@@ -34,7 +34,7 @@ class LikeCounterTest extends TestCase
     /** @test */
     public function it_can_cast_count()
     {
-        $like = new LikeCounter([
+        $like = new LikersCounter([
             'count' => '4',
         ]);
 
@@ -44,7 +44,7 @@ class LikeCounterTest extends TestCase
     /** @test */
     public function it_can_fill_type_id()
     {
-        $counter = new LikeCounter([
+        $counter = new LikersCounter([
             'type_id' => 2,
         ]);
 
