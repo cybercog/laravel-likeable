@@ -70,6 +70,7 @@ class LikeableRecountCommand extends Command
 
         if (!empty($model)) {
             $this->recountLikesOfModelType($model);
+
             return;
         }
 
