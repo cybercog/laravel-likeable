@@ -19,6 +19,20 @@ namespace Cog\Likeable\Contracts;
 interface HasLikes
 {
     /**
+     * Get the value of the model's primary key.
+     *
+     * @return mixed
+     */
+    public function getKey();
+
+    /**
+     * Get the class name for polymorphic relations.
+     *
+     * @return string
+     */
+    public function getMorphClass();
+
+    /**
      * Collection of the likes on this record.
      *
      * @return \Illuminate\Database\Eloquent\Relations\MorphMany

@@ -39,7 +39,6 @@ class ModelWasLiked
      *
      * @param \Cog\Likeable\Contracts\HasLikes $model
      * @param int $likerId
-     * @return void
      */
     public function __construct(HasLikesContract $model, $likerId)
     {

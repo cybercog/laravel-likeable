@@ -59,22 +59,22 @@ class LikeableRecountCommand extends Command
     /**
      * Execute the console command.
      *
-     * @param \Illuminate\Contracts\Events\Dispatcher $events
      * @return void
      *
      * @throws \Cog\Likeable\Exceptions\ModelInvalidException
      */
-    public function handle(Dispatcher $events)
+    public function handle()
     {
         $model = $this->argument('model');
         $this->likeType = $this->argument('type');
         $this->service = app(LikeableServiceContract::class);
 
-        if (empty($model)) {
-            $this->recountLikesOfAllModelTypes();
-        } else {
+        if (!empty($model)) {
             $this->recountLikesOfModelType($model);
+            return;
         }
+
+        $this->recountLikesOfAllModelTypes();
     }
 
     /**
@@ -113,6 +113,14 @@ class LikeableRecountCommand extends Command
         $this->info('All [' . $modelType . '] records likes has been recounted.');
     }
 
+    /**
+     * Normalize model type.
+     *
+     * @param $modelType
+     * @return string
+     *
+     * @throws \Cog\Likeable\Exceptions\ModelInvalidException
+     */
     protected function normalizeModelType($modelType)
     {
         $morphMap = Relation::morphMap();
