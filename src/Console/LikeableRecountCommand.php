@@ -17,7 +17,6 @@ use Cog\Likeable\Contracts\LikersCounter as LikersCounterContract;
 use Cog\Likeable\Exceptions\ModelInvalidException;
 use Cog\Likeable\Services\LikeableService as LikeableServiceContract;
 use Illuminate\Console\Command;
-use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Facades\DB;
 
