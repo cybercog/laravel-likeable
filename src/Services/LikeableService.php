@@ -19,6 +19,7 @@ use Cog\Likeable\Enums\LikeType;
 use Cog\Likeable\Exceptions\LikerNotDefinedException;
 use Cog\Likeable\Exceptions\LikeTypeInvalidException;
 use DB;
+use Illuminate\Database\Eloquent\Builder;
 
 /**
  * Class LikeableService.
@@ -262,18 +263,18 @@ class LikeableService implements LikeableServiceContract
     /**
      * Fetch records that are liked by a given user id.
      *
-     * @param \Illuminate\Database\Query\Builder $query
+     * @param \Illuminate\Database\Eloquent\Builder $query
      * @param string $type
      * @param int|null $userId
-     * @return \Illuminate\Database\Query\Builder
+     * @return \Illuminate\Database\Eloquent\Builder
      *
      * @throws \Cog\Likeable\Exceptions\LikerNotDefinedException
      */
-    public function scopeWhereLikedBy($query, $type, $userId)
+    public function scopeWhereLikedBy(Builder $query, $type, $userId)
     {
         $userId = $this->getLikerUserId($userId);
 
-        return $query->whereHas('likesAndDislikes', function ($q) use ($type, $userId) {
+        return $query->whereHas('likesAndDislikes', function (Builder $q) use ($type, $userId) {
             $q->where([
                 'user_id' => $userId,
                 'type_id' => $this->getLikeTypeId($type),
