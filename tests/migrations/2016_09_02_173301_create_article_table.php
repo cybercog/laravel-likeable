@@ -17,6 +17,11 @@ use Illuminate\Database\Schema\Blueprint;
  */
 class CreateArticleTable extends Migration
 {
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
     public function up()
     {
         Schema::create('article', function (Blueprint $table) {
@@ -26,8 +31,13 @@ class CreateArticleTable extends Migration
         });
     }
 
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
     public function down()
     {
-        Schema::drop('article');
+        Schema::dropIfExists('article');
     }
 }

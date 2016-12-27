@@ -17,6 +17,11 @@ use Illuminate\Database\Schema\Blueprint;
  */
 class CreateEntityWithMorphMapTable extends Migration
 {
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
     public function up()
     {
         Schema::create('entity_with_morph_map', function (Blueprint $table) {
@@ -26,8 +31,13 @@ class CreateEntityWithMorphMapTable extends Migration
         });
     }
 
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
     public function down()
     {
-        Schema::drop('entity_with_morph_map');
+        Schema::dropIfExists('entity_with_morph_map');
     }
 }

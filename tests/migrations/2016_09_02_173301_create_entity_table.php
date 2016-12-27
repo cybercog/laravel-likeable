@@ -17,6 +17,11 @@ use Illuminate\Database\Schema\Blueprint;
  */
 class CreateEntityTable extends Migration
 {
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
     public function up()
     {
         Schema::create('entity', function (Blueprint $table) {
@@ -26,8 +31,13 @@ class CreateEntityTable extends Migration
         });
     }
 
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
     public function down()
     {
-        Schema::drop('entity');
+        Schema::dropIfExists('entity');
     }
 }

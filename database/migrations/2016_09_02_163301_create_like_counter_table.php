@@ -9,11 +9,20 @@
  * file that was distributed with this source code.
  */
 
-use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
+/**
+ * Class CreateLikeCounterTable.
+ */
 class CreateLikeCounterTable extends Migration
 {
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
     public function up()
     {
         Schema::create('like_counter', function (Blueprint $table) {
@@ -34,8 +43,13 @@ class CreateLikeCounterTable extends Migration
         });
     }
 
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
     public function down()
     {
-        Schema::drop('like_counter');
+        Schema::dropIfExists('like_counter');
     }
 }

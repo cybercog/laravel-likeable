@@ -17,6 +17,11 @@ use Illuminate\Database\Schema\Blueprint;
  */
 class CreateUserTable extends Migration
 {
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
     public function up()
     {
         Schema::create('user', function (Blueprint $table) {
@@ -26,8 +31,13 @@ class CreateUserTable extends Migration
         });
     }
 
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
     public function down()
     {
-        Schema::drop('user');
+        Schema::dropIfExists('user');
     }
 }

@@ -7,9 +7,19 @@
 
 Trait for Laravel Eloquent models to allow easy implementation of a `like` & `dislike` features.
 
-*Note: Likes and dislikes for one model by one user are mutually exclusive.*
-
 ![cybercog-laravel-likeable](https://cloud.githubusercontent.com/assets/1849174/18293813/cf2ffafc-749d-11e6-912f-e827c3b50c50.png)
+
+## Features
+
+- Designed to work with Laravel Eloquent models.
+- Using contracts to keep high customization capabilities.
+- Using traits to get functionality out of the box.
+- Most part of the the logic is handled by the `LikeableService`.
+- Has Artisan command `likeable:recount {model?} {type?}` to re-fetch likes counters.
+- Likeable model can has Likes and Dislikes.
+- Likes and Dislikes for one model are mutually exclusive.
+- Events for `like`, `unlike`, `dislike`, `undislike` methods.
+- Covered with unit tests.
 
 ## Installation
 
@@ -339,6 +349,8 @@ If you discover any security related issues, please email [support@cybercog.su](
 - [rtconner/laravel-likeable](https://github.com/rtconner/laravel-likeable)
 - [draperstudio/laravel-likeable](https://github.com/DraperStudio/Laravel-Likeable)
 - [sukohi/evaluation](https://github.com/SUKOHI/Evaluation)
+
+*Feel free to add more alternatives as Pull Request.*
 
 ## License
 

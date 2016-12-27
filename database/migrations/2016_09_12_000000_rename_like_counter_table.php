@@ -9,17 +9,31 @@
  * file that was distributed with this source code.
  */
 
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Migrations\Migration;
 
+/**
+ * Class RenameLikeCounterTable.
+ */
 class RenameLikeCounterTable extends Migration
 {
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
     public function up()
     {
         Schema::rename('like_counter', 'likers_counter');
     }
 
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
     public function down()
     {
-        Schema::drop('liker_counter');
+        Schema::rename('likers_counter', 'like_counter');
     }
 }
