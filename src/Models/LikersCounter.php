@@ -11,8 +11,8 @@
 
 namespace Cog\Likeable\Models;
 
-use Cog\Likeable\Contracts\LikersCounter as LikersCounterContract;
 use Illuminate\Database\Eloquent\Model;
+use Cog\Likeable\Contracts\LikersCounter as LikersCounterContract;
 
 /**
  * Class LikersCounter.

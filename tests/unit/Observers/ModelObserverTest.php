@@ -11,14 +11,14 @@
 
 namespace Cog\Likeable\Tests\Unit\Observers;
 
-use Cog\Likeable\Contracts\HasLikes as HasLikesContract;
+use Mockery;
 use Cog\Likeable\Models\Like;
+use Cog\Likeable\Tests\TestCase;
 use Cog\Likeable\Models\LikersCounter;
 use Cog\Likeable\Observers\ModelObserver;
 use Cog\Likeable\Tests\Stubs\Models\Entity;
-use Cog\Likeable\Tests\TestCase;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use Mockery;
+use Cog\Likeable\Contracts\HasLikes as HasLikesContract;
 
 /**
  * Class ModelObserverTest.

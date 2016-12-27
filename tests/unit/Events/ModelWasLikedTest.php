@@ -11,9 +11,9 @@
 
 namespace Cog\Likeable\Tests\Unit\Events;
 
+use Cog\Likeable\Tests\TestCase;
 use Cog\Likeable\Events\ModelWasLiked;
 use Cog\Likeable\Tests\Stubs\Models\Entity;
-use Cog\Likeable\Tests\TestCase;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 /**

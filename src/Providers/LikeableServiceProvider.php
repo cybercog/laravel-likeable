@@ -11,15 +11,15 @@
 
 namespace Cog\Likeable\Providers;
 
-use Cog\Likeable\Console\LikeableRecountCommand;
-use Cog\Likeable\Contracts\Like as LikeContract;
-use Cog\Likeable\Contracts\LikeableService as LikeableServiceContract;
-use Cog\Likeable\Contracts\LikersCounter as LikersCounterContract;
 use Cog\Likeable\Models\Like;
 use Cog\Likeable\Models\LikersCounter;
+use Illuminate\Support\ServiceProvider;
 use Cog\Likeable\Observers\LikeObserver;
 use Cog\Likeable\Services\LikeableService;
-use Illuminate\Support\ServiceProvider;
+use Cog\Likeable\Console\LikeableRecountCommand;
+use Cog\Likeable\Contracts\Like as LikeContract;
+use Cog\Likeable\Contracts\LikersCounter as LikersCounterContract;
+use Cog\Likeable\Contracts\LikeableService as LikeableServiceContract;
 
 /**
  * Class LikeableServiceProvider.

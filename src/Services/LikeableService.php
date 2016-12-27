@@ -11,15 +11,15 @@
 
 namespace Cog\Likeable\Services;
 
-use Cog\Likeable\Contracts\HasLikes as HasLikesContract;
-use Cog\Likeable\Contracts\Like as LikeContract;
-use Cog\Likeable\Contracts\LikeableService as LikeableServiceContract;
-use Cog\Likeable\Contracts\LikersCounter as LikersCounterContract;
 use Cog\Likeable\Enums\LikeType;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\Builder;
+use Cog\Likeable\Contracts\Like as LikeContract;
 use Cog\Likeable\Exceptions\LikerNotDefinedException;
 use Cog\Likeable\Exceptions\LikeTypeInvalidException;
-use DB;
-use Illuminate\Database\Eloquent\Builder;
+use Cog\Likeable\Contracts\HasLikes as HasLikesContract;
+use Cog\Likeable\Contracts\LikersCounter as LikersCounterContract;
+use Cog\Likeable\Contracts\LikeableService as LikeableServiceContract;
 
 /**
  * Class LikeableService.

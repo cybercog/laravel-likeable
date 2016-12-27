@@ -11,10 +11,10 @@
 
 namespace Cog\Likeable\Tests\Unit;
 
-use Cog\Likeable\Contracts\Like as LikeContract;
-use Cog\Likeable\Tests\Stubs\Models\Entity;
-use Cog\Likeable\Tests\Stubs\Models\User;
 use Cog\Likeable\Tests\TestCase;
+use Cog\Likeable\Tests\Stubs\Models\User;
+use Cog\Likeable\Tests\Stubs\Models\Entity;
+use Cog\Likeable\Contracts\Like as LikeContract;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 /**

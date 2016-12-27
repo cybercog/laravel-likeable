@@ -11,13 +11,13 @@
 
 namespace Cog\Likeable\Tests\Unit\Services;
 
-use Cog\Likeable\Models\LikersCounter;
-use Cog\Likeable\Services\LikeableService as LikeableServiceContract;
-use Cog\Likeable\Tests\Stubs\Models\Article;
-use Cog\Likeable\Tests\Stubs\Models\Entity;
-use Cog\Likeable\Tests\Stubs\Models\EntityWithMorphMap;
 use Cog\Likeable\Tests\TestCase;
+use Cog\Likeable\Models\LikersCounter;
+use Cog\Likeable\Tests\Stubs\Models\Entity;
+use Cog\Likeable\Tests\Stubs\Models\Article;
+use Cog\Likeable\Tests\Stubs\Models\EntityWithMorphMap;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Cog\Likeable\Services\LikeableService as LikeableServiceContract;
 
 /**
  * Class LikeableServiceTest.

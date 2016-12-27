@@ -11,11 +11,11 @@
 
 namespace Cog\Likeable\Traits;
 
-use Cog\Likeable\Contracts\Like as LikeContract;
-use Cog\Likeable\Contracts\LikeableService as LikeableServiceContract;
-use Cog\Likeable\Contracts\LikersCounter as LikersCounterContract;
 use Cog\Likeable\Enums\LikeType;
 use Cog\Likeable\Observers\ModelObserver;
+use Cog\Likeable\Contracts\Like as LikeContract;
+use Cog\Likeable\Contracts\LikersCounter as LikersCounterContract;
+use Cog\Likeable\Contracts\LikeableService as LikeableServiceContract;
 
 /**
  * Class HasLikes.

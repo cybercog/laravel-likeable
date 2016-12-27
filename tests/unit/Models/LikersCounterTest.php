@@ -11,8 +11,8 @@
 
 namespace Cog\Likeable\Tests\Unit\Models;
 
-use Cog\Likeable\Models\LikersCounter;
 use Cog\Likeable\Tests\TestCase;
+use Cog\Likeable\Models\LikersCounter;
 
 /**
  * Class LikersCounterTest.

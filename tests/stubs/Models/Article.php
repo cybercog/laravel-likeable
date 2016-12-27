@@ -11,9 +11,9 @@
 
 namespace Cog\Likeable\Tests\Stubs\Models;
 
-use Cog\Likeable\Contracts\HasLikes as HasLikesContract;
 use Cog\Likeable\Traits\HasLikes;
 use Illuminate\Database\Eloquent\Model;
+use Cog\Likeable\Contracts\HasLikes as HasLikesContract;
 
 /**
  * Class Article.

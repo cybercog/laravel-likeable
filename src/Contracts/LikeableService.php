@@ -11,8 +11,8 @@
 
 namespace Cog\Likeable\Contracts;
 
-use Cog\Likeable\Contracts\HasLikes as HasLikesContract;
 use Illuminate\Database\Eloquent\Builder;
+use Cog\Likeable\Contracts\HasLikes as HasLikesContract;
 
 /**
  * Interface LikeableService.

@@ -11,15 +11,15 @@
 
 namespace Cog\Likeable\Tests\Unit\Observers;
 
-use Cog\Likeable\Models\LikersCounter;
-use Cog\Likeable\Tests\Stubs\Models\Article;
-use Cog\Likeable\Tests\Stubs\Models\Entity;
-use Cog\Likeable\Tests\Stubs\Models\EntityWithMorphMap;
-use Cog\Likeable\Tests\Stubs\Models\User;
 use Cog\Likeable\Tests\TestCase;
+use Cog\Likeable\Models\LikersCounter;
 use Illuminate\Contracts\Console\Kernel;
+use Cog\Likeable\Tests\Stubs\Models\User;
+use Cog\Likeable\Tests\Stubs\Models\Entity;
+use Cog\Likeable\Tests\Stubs\Models\Article;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Output\BufferedOutput;
+use Cog\Likeable\Tests\Stubs\Models\EntityWithMorphMap;
 
 /**
  * Class LikeableRecountCommandTest.

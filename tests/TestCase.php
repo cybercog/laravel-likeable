@@ -11,11 +11,11 @@
 
 namespace Cog\Likeable\Tests;
 
-use Cog\Likeable\Tests\Stubs\Models\EntityWithMorphMap;
-use File;
-use Illuminate\Database\Eloquent\Relations\Relation;
 use Mockery;
+use Illuminate\Support\Facades\File;
 use Orchestra\Testbench\TestCase as Orchestra;
+use Illuminate\Database\Eloquent\Relations\Relation;
+use Cog\Likeable\Tests\Stubs\Models\EntityWithMorphMap;
 
 /**
  * Class TestCase.

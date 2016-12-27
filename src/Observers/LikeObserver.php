@@ -12,10 +12,10 @@
 namespace Cog\Likeable\Observers;
 
 use Cog\Likeable\Enums\LikeType;
-use Cog\Likeable\Events\ModelWasDisliked;
 use Cog\Likeable\Events\ModelWasLiked;
-use Cog\Likeable\Events\ModelWasUndisliked;
 use Cog\Likeable\Events\ModelWasUnliked;
+use Cog\Likeable\Events\ModelWasDisliked;
+use Cog\Likeable\Events\ModelWasUndisliked;
 use Cog\Likeable\Contracts\Like as LikeContract;
 use Cog\Likeable\Contracts\LikeableService as LikeableServiceContract;
 
