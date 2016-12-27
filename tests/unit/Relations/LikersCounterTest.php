@@ -11,17 +11,17 @@
 
 namespace Cog\Likeable\Tests\Unit\Relations;
 
-use Cog\Likeable\Models\LikeCounter;
-use Cog\Likeable\Tests\Stubs\Models\Entity;
 use Cog\Likeable\Tests\TestCase;
+use Cog\Likeable\Models\LikersCounter;
+use Cog\Likeable\Tests\Stubs\Models\Entity;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 /**
- * Class LikeCounterTest.
+ * Class LikersCounterTest.
  *
  * @package Cog\Likeable\Tests\Unit\Relations
  */
-class LikeCounterTest extends TestCase
+class LikersCounterTest extends TestCase
 {
     use DatabaseTransactions;
 
@@ -32,6 +32,6 @@ class LikeCounterTest extends TestCase
 
         $entity->like(1);
 
-        $this->assertInstanceOf(Entity::class, LikeCounter::first()->likeable);
+        $this->assertInstanceOf(Entity::class, LikersCounter::first()->likeable);
     }
 }

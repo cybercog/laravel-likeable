@@ -11,6 +11,7 @@
 
 namespace Cog\Likeable\Contracts;
 
+use Illuminate\Database\Eloquent\Builder;
 use Cog\Likeable\Contracts\HasLikes as HasLikesContract;
 
 /**
@@ -67,45 +68,45 @@ interface LikeableService
     public function isLiked(HasLikesContract $model, $type, $userId);
 
     /**
-     * Decrement the total like count stored in the counter.
+     * Decrement the total likers count stored in the counter.
      *
      * @param \Cog\Likeable\Contracts\HasLikes $model
      * @return void
      */
-    public function decrementLikesCount(HasLikesContract $model);
+    public function decrementLikersCount(HasLikesContract $model);
 
     /**
-     * Increment the total like count stored in the counter.
+     * Increment the total likers count stored in the counter.
      *
      * @param \Cog\Likeable\Contracts\HasLikes $model
      * @return void
      */
-    public function incrementLikesCount(HasLikesContract $model);
+    public function incrementLikersCount(HasLikesContract $model);
 
     /**
-     * Decrement the total dislike count stored in the counter.
+     * Decrement the total dislikers count stored in the counter.
      *
      * @param \Cog\Likeable\Contracts\HasLikes $model
      * @return void
      */
-    public function decrementDislikesCount(HasLikesContract $model);
+    public function decrementDislikersCount(HasLikesContract $model);
 
     /**
-     * Increment the total dislike count stored in the counter.
+     * Increment the total dislikers count stored in the counter.
      *
      * @param \Cog\Likeable\Contracts\HasLikes $model
      * @return void
      */
-    public function incrementDislikesCount(HasLikesContract $model);
+    public function incrementDislikersCount(HasLikesContract $model);
 
     /**
-     * Remove like counters by likeable type.
+     * Remove liker counters by likeable type.
      *
      * @param string $likeableType
      * @param string|null $type
      * @return void
      */
-    public function removeLikeCountersOfType($likeableType, $type = null);
+    public function removeLikersCountersOfType($likeableType, $type = null);
 
     /**
      * Remove all likes from likeable model.
@@ -119,21 +120,21 @@ interface LikeableService
     /**
      * Fetch records that are liked by a given user id.
      *
-     * @param \Illuminate\Database\Query\Builder $query
+     * @param \Illuminate\Database\Eloquent\Builder $query
      * @param string $type
      * @param int|null $userId
-     * @return \Illuminate\Database\Query\Builder
+     * @return \Illuminate\Database\Eloquent\Builder
      *
      * @throws \Cog\Likeable\Exceptions\LikerNotDefinedException
      */
-    public function scopeWhereLikedBy($query, $type, $userId);
+    public function scopeWhereLikedBy(Builder $query, $type, $userId);
 
     /**
-     * Fetch likes counters data.
+     * Fetch likers counters data.
      *
      * @param string $likeableType
      * @param string $likeType
      * @return array
      */
-    public function fetchLikesCounters($likeableType, $likeType);
+    public function fetchLikersCounters($likeableType, $likeType);
 }

@@ -11,15 +11,14 @@
 
 namespace Cog\Likeable\Console;
 
-use Cog\Likeable\Contracts\HasLikes as HasLikesContract;
-use Cog\Likeable\Contracts\Like as LikeContract;
-use Cog\Likeable\Contracts\LikeCounter as LikeCounterContract;
-use Cog\Likeable\Exceptions\ModelInvalidException;
-use Cog\Likeable\Services\LikeableService as LikeableServiceContract;
 use Illuminate\Console\Command;
-use Illuminate\Contracts\Events\Dispatcher;
-use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Facades\DB;
+use Cog\Likeable\Contracts\Like as LikeContract;
+use Cog\Likeable\Exceptions\ModelInvalidException;
+use Illuminate\Database\Eloquent\Relations\Relation;
+use Cog\Likeable\Contracts\HasLikes as HasLikesContract;
+use Cog\Likeable\Contracts\LikersCounter as LikersCounterContract;
+use Cog\Likeable\Services\LikeableService as LikeableServiceContract;
 
 /**
  * Class LikeableRecountCommand.
@@ -59,22 +58,23 @@ class LikeableRecountCommand extends Command
     /**
      * Execute the console command.
      *
-     * @param \Illuminate\Contracts\Events\Dispatcher $events
      * @return void
      *
      * @throws \Cog\Likeable\Exceptions\ModelInvalidException
      */
-    public function handle(Dispatcher $events)
+    public function handle()
     {
         $model = $this->argument('model');
         $this->likeType = $this->argument('type');
         $this->service = app(LikeableServiceContract::class);
 
-        if (empty($model)) {
-            $this->recountLikesOfAllModelTypes();
-        } else {
+        if (!empty($model)) {
             $this->recountLikesOfModelType($model);
+
+            return;
         }
+
+        $this->recountLikesOfAllModelTypes();
     }
 
     /**
@@ -104,15 +104,23 @@ class LikeableRecountCommand extends Command
     {
         $modelType = $this->normalizeModelType($modelType);
 
-        $counters = $this->service->fetchLikesCounters($modelType, $this->likeType);
+        $counters = $this->service->fetchLikersCounters($modelType, $this->likeType);
 
-        $this->service->removeLikeCountersOfType($modelType, $this->likeType);
+        $this->service->removeLikersCountersOfType($modelType, $this->likeType);
 
-        DB::table(app(LikeCounterContract::class)->getTable())->insert($counters);
+        DB::table(app(LikersCounterContract::class)->getTable())->insert($counters);
 
         $this->info('All [' . $modelType . '] records likes has been recounted.');
     }
 
+    /**
+     * Normalize model type.
+     *
+     * @param $modelType
+     * @return string
+     *
+     * @throws \Cog\Likeable\Exceptions\ModelInvalidException
+     */
     protected function normalizeModelType($modelType)
     {
         $morphMap = Relation::morphMap();

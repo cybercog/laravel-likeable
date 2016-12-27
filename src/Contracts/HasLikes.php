@@ -19,6 +19,20 @@ namespace Cog\Likeable\Contracts;
 interface HasLikes
 {
     /**
+     * Get the value of the model's primary key.
+     *
+     * @return mixed
+     */
+    public function getKey();
+
+    /**
+     * Get the class name for polymorphic relations.
+     *
+     * @return string
+     */
+    public function getMorphClass();
+
+    /**
      * Collection of the likes on this record.
      *
      * @return \Illuminate\Database\Eloquent\Relations\MorphMany
@@ -40,32 +54,32 @@ interface HasLikes
     public function dislikes();
 
     /**
-     * Counter is a record that stores the total likes for the morphed record.
+     * Counter is a record that stores the total likers count for the morphed record.
      *
      * @return \Illuminate\Database\Eloquent\Relations\MorphOne
      */
-    public function likesCounter();
+    public function likersCounter();
 
     /**
-     * Counter is a record that stores the total dislikes for the morphed record.
+     * Counter is a record that stores the total dislikers count for the morphed record.
      *
      * @return \Illuminate\Database\Eloquent\Relations\MorphOne
      */
-    public function dislikesCounter();
+    public function dislikersCounter();
 
     /**
-     * Model likesCount attribute.
+     * Model likersCount attribute.
      *
      * @return int
      */
-    public function getLikesCountAttribute();
+    public function getLikersCountAttribute();
 
     /**
-     * Model dislikesCount attribute.
+     * Model dislikersCount attribute.
      *
      * @return int
      */
-    public function getDislikesCountAttribute();
+    public function getDislikersCountAttribute();
 
     /**
      * Did the currently logged in user like this model.
@@ -86,7 +100,7 @@ interface HasLikes
      *
      * @return int
      */
-    public function getLikesDiffDislikesCountAttribute();
+    public function getLikersDiffDislikersCountAttribute();
 
     /**
      * Fetch records that are liked by a given user id.

@@ -12,13 +12,13 @@
 namespace Cog\Likeable\Contracts;
 
 /**
- * Interface LikeCounter.
+ * Interface LikersCounter.
  *
  * @property int type_id
  * @property int count
  * @package Cog\Likeable\Contracts
  */
-interface LikeCounter
+interface LikersCounter
 {
     /**
      * Likeable model relation.

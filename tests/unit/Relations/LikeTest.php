@@ -12,8 +12,8 @@
 namespace Cog\Likeable\Tests\Unit\Relations;
 
 use Cog\Likeable\Models\Like;
-use Cog\Likeable\Tests\Stubs\Models\Entity;
 use Cog\Likeable\Tests\TestCase;
+use Cog\Likeable\Tests\Stubs\Models\Entity;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 /**

@@ -11,15 +11,15 @@
 
 namespace Cog\Likeable\Tests\Unit\Observers;
 
-use Cog\Likeable\Models\LikeCounter;
-use Cog\Likeable\Tests\Stubs\Models\Article;
-use Cog\Likeable\Tests\Stubs\Models\Entity;
-use Cog\Likeable\Tests\Stubs\Models\EntityWithMorphMap;
-use Cog\Likeable\Tests\Stubs\Models\User;
 use Cog\Likeable\Tests\TestCase;
+use Cog\Likeable\Models\LikersCounter;
 use Illuminate\Contracts\Console\Kernel;
+use Cog\Likeable\Tests\Stubs\Models\User;
+use Cog\Likeable\Tests\Stubs\Models\Entity;
+use Cog\Likeable\Tests\Stubs\Models\Article;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Output\BufferedOutput;
+use Cog\Likeable\Tests\Stubs\Models\EntityWithMorphMap;
 
 /**
  * Class LikeableRecountCommandTest.
@@ -56,7 +56,7 @@ class LikeableRecountCommandTest extends TestCase
         $entity2->like(4);
         $article->like(4);
 
-        LikeCounter::truncate();
+        LikersCounter::truncate();
 
         $status = $this->kernel->handle(
             $input = new ArrayInput([
@@ -68,12 +68,12 @@ class LikeableRecountCommandTest extends TestCase
 
         $this->assertEquals(0, $status);
 
-        $likeCounter = LikeCounter::all();
-        $this->assertCount(3, $likeCounter);
-        $this->assertEquals(0, $entity1->dislikesCount);
-        $this->assertEquals(3, $entity1->likesCount);
-        $this->assertEquals(4, $entity2->likesCount);
-        $this->assertEquals(1, $article->likesCount);
+        $likersCounter = LikersCounter::all();
+        $this->assertCount(3, $likersCounter);
+        $this->assertEquals(0, $entity1->dislikersCount);
+        $this->assertEquals(3, $entity1->likersCount);
+        $this->assertEquals(4, $entity2->likersCount);
+        $this->assertEquals(1, $article->likersCount);
     }
 
     /** @test */
@@ -91,7 +91,7 @@ class LikeableRecountCommandTest extends TestCase
         $entity2->like(3);
         $entity2->like(4);
 
-        LikeCounter::truncate();
+        LikersCounter::truncate();
 
         $status = $this->kernel->handle(
             $input = new ArrayInput([
@@ -104,11 +104,11 @@ class LikeableRecountCommandTest extends TestCase
 
         $this->assertEquals(0, $status);
 
-        $likeCounter = LikeCounter::all();
-        $this->assertCount(2, $likeCounter);
-        $this->assertEquals(0, $entity1->dislikesCount);
-        $this->assertEquals(3, $entity1->likesCount);
-        $this->assertEquals(4, $entity2->likesCount);
+        $likersCounter = LikersCounter::all();
+        $this->assertCount(2, $likersCounter);
+        $this->assertEquals(0, $entity1->dislikersCount);
+        $this->assertEquals(3, $entity1->likersCount);
+        $this->assertEquals(4, $entity2->likersCount);
     }
 
     /** @test */
@@ -126,7 +126,7 @@ class LikeableRecountCommandTest extends TestCase
         $entity2->like(3);
         $entity2->like(4);
 
-        LikeCounter::truncate();
+        LikersCounter::truncate();
 
         $status = $this->kernel->handle(
             $input = new ArrayInput([
@@ -139,11 +139,11 @@ class LikeableRecountCommandTest extends TestCase
 
         $this->assertEquals(0, $status);
 
-        $likeCounter = LikeCounter::all();
-        $this->assertCount(2, $likeCounter);
-        $this->assertEquals(0, $entity1->dislikesCount);
-        $this->assertEquals(3, $entity1->likesCount);
-        $this->assertEquals(4, $entity2->likesCount);
+        $likersCounter = LikersCounter::all();
+        $this->assertCount(2, $likersCounter);
+        $this->assertEquals(0, $entity1->dislikersCount);
+        $this->assertEquals(3, $entity1->likersCount);
+        $this->assertEquals(4, $entity2->likersCount);
     }
 
     /** @test */
@@ -161,7 +161,7 @@ class LikeableRecountCommandTest extends TestCase
         $entity2->like(3);
         $entity2->like(4);
 
-        LikeCounter::truncate();
+        LikersCounter::truncate();
 
         $status = $this->kernel->handle(
             $input = new ArrayInput([
@@ -174,11 +174,11 @@ class LikeableRecountCommandTest extends TestCase
 
         $this->assertEquals(0, $status);
 
-        $likeCounter = LikeCounter::all();
-        $this->assertCount(2, $likeCounter);
-        $this->assertEquals(0, $entity1->dislikesCount);
-        $this->assertEquals(3, $entity1->likesCount);
-        $this->assertEquals(4, $entity2->likesCount);
+        $likersCounter = LikersCounter::all();
+        $this->assertCount(2, $likersCounter);
+        $this->assertEquals(0, $entity1->dislikersCount);
+        $this->assertEquals(3, $entity1->likersCount);
+        $this->assertEquals(4, $entity2->likersCount);
     }
 
     /* Dislikes */
@@ -200,7 +200,7 @@ class LikeableRecountCommandTest extends TestCase
         $entity2->dislike(4);
         $article->dislike(4);
 
-        LikeCounter::truncate();
+        LikersCounter::truncate();
 
         $status = $this->kernel->handle(
             $input = new ArrayInput([
@@ -212,12 +212,12 @@ class LikeableRecountCommandTest extends TestCase
 
         $this->assertEquals(0, $status);
 
-        $likeCounter = LikeCounter::all();
-        $this->assertCount(3, $likeCounter);
-        $this->assertEquals(0, $entity1->likesCount);
-        $this->assertEquals(3, $entity1->dislikesCount);
-        $this->assertEquals(4, $entity2->dislikesCount);
-        $this->assertEquals(1, $article->dislikesCount);
+        $likersCounter = LikersCounter::all();
+        $this->assertCount(3, $likersCounter);
+        $this->assertEquals(0, $entity1->likersCount);
+        $this->assertEquals(3, $entity1->dislikersCount);
+        $this->assertEquals(4, $entity2->dislikersCount);
+        $this->assertEquals(1, $article->dislikersCount);
     }
 
     /** @test */
@@ -235,7 +235,7 @@ class LikeableRecountCommandTest extends TestCase
         $entity2->dislike(3);
         $entity2->dislike(4);
 
-        LikeCounter::truncate();
+        LikersCounter::truncate();
 
         $status = $this->kernel->handle(
             $input = new ArrayInput([
@@ -248,11 +248,11 @@ class LikeableRecountCommandTest extends TestCase
 
         $this->assertEquals(0, $status);
 
-        $likeCounter = LikeCounter::all();
-        $this->assertCount(2, $likeCounter);
-        $this->assertEquals(0, $entity1->likesCount);
-        $this->assertEquals(3, $entity1->dislikesCount);
-        $this->assertEquals(4, $entity2->dislikesCount);
+        $likersCounter = LikersCounter::all();
+        $this->assertCount(2, $likersCounter);
+        $this->assertEquals(0, $entity1->likersCount);
+        $this->assertEquals(3, $entity1->dislikersCount);
+        $this->assertEquals(4, $entity2->dislikersCount);
     }
 
     /** @test */
@@ -270,7 +270,7 @@ class LikeableRecountCommandTest extends TestCase
         $entity2->dislike(3);
         $entity2->dislike(4);
 
-        LikeCounter::truncate();
+        LikersCounter::truncate();
 
         $status = $this->kernel->handle(
             $input = new ArrayInput([
@@ -283,11 +283,11 @@ class LikeableRecountCommandTest extends TestCase
 
         $this->assertEquals(0, $status);
 
-        $likeCounter = LikeCounter::all();
-        $this->assertCount(2, $likeCounter);
-        $this->assertEquals(0, $entity1->likesCount);
-        $this->assertEquals(3, $entity1->dislikesCount);
-        $this->assertEquals(4, $entity2->dislikesCount);
+        $likersCounter = LikersCounter::all();
+        $this->assertCount(2, $likersCounter);
+        $this->assertEquals(0, $entity1->likersCount);
+        $this->assertEquals(3, $entity1->dislikersCount);
+        $this->assertEquals(4, $entity2->dislikersCount);
     }
 
     /** @test */
@@ -305,7 +305,7 @@ class LikeableRecountCommandTest extends TestCase
         $entity2->dislike(3);
         $entity2->dislike(4);
 
-        LikeCounter::truncate();
+        LikersCounter::truncate();
 
         $status = $this->kernel->handle(
             $input = new ArrayInput([
@@ -318,11 +318,11 @@ class LikeableRecountCommandTest extends TestCase
 
         $this->assertEquals(0, $status);
 
-        $likeCounter = LikeCounter::all();
-        $this->assertCount(2, $likeCounter);
-        $this->assertEquals(0, $entity1->likesCount);
-        $this->assertEquals(3, $entity1->dislikesCount);
-        $this->assertEquals(4, $entity2->dislikesCount);
+        $likersCounter = LikersCounter::all();
+        $this->assertCount(2, $likersCounter);
+        $this->assertEquals(0, $entity1->likersCount);
+        $this->assertEquals(3, $entity1->dislikersCount);
+        $this->assertEquals(4, $entity2->dislikersCount);
     }
 
     /* Likes & Dislikes */
@@ -343,7 +343,7 @@ class LikeableRecountCommandTest extends TestCase
         $entity2->dislike(4);
         $article->dislike(4);
 
-        LikeCounter::truncate();
+        LikersCounter::truncate();
 
         $status = $this->kernel->handle(
             $input = new ArrayInput([
@@ -354,13 +354,13 @@ class LikeableRecountCommandTest extends TestCase
 
         $this->assertEquals(0, $status);
 
-        $likeCounter = LikeCounter::all();
-        $this->assertCount(5, $likeCounter);
-        $this->assertEquals(2, $entity1->likesCount);
-        $this->assertEquals(1, $entity1->dislikesCount);
-        $this->assertEquals(2, $entity2->likesCount);
-        $this->assertEquals(2, $entity2->dislikesCount);
-        $this->assertEquals(1, $article->dislikesCount);
+        $likersCounter = LikersCounter::all();
+        $this->assertCount(5, $likersCounter);
+        $this->assertEquals(2, $entity1->likersCount);
+        $this->assertEquals(1, $entity1->dislikersCount);
+        $this->assertEquals(2, $entity2->likersCount);
+        $this->assertEquals(2, $entity2->dislikersCount);
+        $this->assertEquals(1, $article->dislikersCount);
     }
 
     /** @test */
@@ -377,7 +377,7 @@ class LikeableRecountCommandTest extends TestCase
         $entity2->dislike(3);
         $entity2->dislike(4);
 
-        LikeCounter::truncate();
+        LikersCounter::truncate();
 
         $status = $this->kernel->handle(
             $input = new ArrayInput([
@@ -389,12 +389,12 @@ class LikeableRecountCommandTest extends TestCase
 
         $this->assertEquals(0, $status);
 
-        $likeCounter = LikeCounter::all();
-        $this->assertCount(4, $likeCounter);
-        $this->assertEquals(2, $entity1->likesCount);
-        $this->assertEquals(1, $entity1->dislikesCount);
-        $this->assertEquals(2, $entity2->likesCount);
-        $this->assertEquals(2, $entity2->dislikesCount);
+        $likersCounter = LikersCounter::all();
+        $this->assertCount(4, $likersCounter);
+        $this->assertEquals(2, $entity1->likersCount);
+        $this->assertEquals(1, $entity1->dislikersCount);
+        $this->assertEquals(2, $entity2->likersCount);
+        $this->assertEquals(2, $entity2->dislikersCount);
     }
 
     /** @test */
@@ -411,7 +411,7 @@ class LikeableRecountCommandTest extends TestCase
         $entity2->dislike(3);
         $entity2->dislike(4);
 
-        LikeCounter::truncate();
+        LikersCounter::truncate();
 
         $status = $this->kernel->handle(
             $input = new ArrayInput([
@@ -423,12 +423,12 @@ class LikeableRecountCommandTest extends TestCase
 
         $this->assertEquals(0, $status);
 
-        $likeCounter = LikeCounter::all();
-        $this->assertCount(4, $likeCounter);
-        $this->assertEquals(2, $entity1->likesCount);
-        $this->assertEquals(1, $entity1->dislikesCount);
-        $this->assertEquals(2, $entity2->likesCount);
-        $this->assertEquals(2, $entity2->dislikesCount);
+        $likersCounter = LikersCounter::all();
+        $this->assertCount(4, $likersCounter);
+        $this->assertEquals(2, $entity1->likersCount);
+        $this->assertEquals(1, $entity1->dislikersCount);
+        $this->assertEquals(2, $entity2->likersCount);
+        $this->assertEquals(2, $entity2->dislikersCount);
     }
 
     /** @test */
@@ -445,7 +445,7 @@ class LikeableRecountCommandTest extends TestCase
         $entity2->dislike(3);
         $entity2->dislike(4);
 
-        LikeCounter::truncate();
+        LikersCounter::truncate();
 
         $status = $this->kernel->handle(
             $input = new ArrayInput([
@@ -457,12 +457,12 @@ class LikeableRecountCommandTest extends TestCase
 
         $this->assertEquals(0, $status);
 
-        $likeCounter = LikeCounter::all();
-        $this->assertCount(4, $likeCounter);
-        $this->assertEquals(2, $entity1->likesCount);
-        $this->assertEquals(1, $entity1->dislikesCount);
-        $this->assertEquals(2, $entity2->likesCount);
-        $this->assertEquals(2, $entity2->dislikesCount);
+        $likersCounter = LikersCounter::all();
+        $this->assertCount(4, $likersCounter);
+        $this->assertEquals(2, $entity1->likersCount);
+        $this->assertEquals(1, $entity1->dislikersCount);
+        $this->assertEquals(2, $entity2->likersCount);
+        $this->assertEquals(2, $entity2->dislikersCount);
     }
 
     /* Exceptions */
@@ -499,6 +499,6 @@ class LikeableRecountCommandTest extends TestCase
 
     public function it_deletes_records_before_recount()
     {
-        // :TODO: Mock `removeLikeCountersOfType` method call
+        // :TODO: Mock `removeLikersCountersOfType` method call
     }
 }

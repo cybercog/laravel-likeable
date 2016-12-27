@@ -11,13 +11,13 @@
 
 namespace Cog\Likeable\Tests\Unit\Services;
 
-use Cog\Likeable\Models\LikeCounter;
-use Cog\Likeable\Services\LikeableService as LikeableServiceContract;
-use Cog\Likeable\Tests\Stubs\Models\Article;
-use Cog\Likeable\Tests\Stubs\Models\Entity;
-use Cog\Likeable\Tests\Stubs\Models\EntityWithMorphMap;
 use Cog\Likeable\Tests\TestCase;
+use Cog\Likeable\Models\LikersCounter;
+use Cog\Likeable\Tests\Stubs\Models\Entity;
+use Cog\Likeable\Tests\Stubs\Models\Article;
+use Cog\Likeable\Tests\Stubs\Models\EntityWithMorphMap;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
+use Cog\Likeable\Services\LikeableService as LikeableServiceContract;
 
 /**
  * Class LikeableServiceTest.
@@ -44,10 +44,10 @@ class LikeableServiceTest extends TestCase
         $entity->like(1);
         $entity->like(2);
 
-        $service->decrementLikesCount($entity);
-        $service->decrementLikesCount($entity);
+        $service->decrementLikersCount($entity);
+        $service->decrementLikersCount($entity);
 
-        $this->assertEquals(0, $entity->likesCount);
+        $this->assertEquals(0, $entity->likersCount);
     }
 
     /** @test */
@@ -56,9 +56,9 @@ class LikeableServiceTest extends TestCase
         $service = $this->app->make(LikeableServiceContract::class);
         $entity = factory(Entity::class)->create();
 
-        $service->decrementLikesCount($entity);
+        $service->decrementLikersCount($entity);
 
-        $this->assertEquals(0, $entity->likesCount);
+        $this->assertEquals(0, $entity->likersCount);
     }
 
     /** @test */
@@ -67,10 +67,10 @@ class LikeableServiceTest extends TestCase
         $service = $this->app->make(LikeableServiceContract::class);
         $entity = factory(Entity::class)->create();
 
-        $service->incrementLikesCount($entity);
-        $service->incrementLikesCount($entity);
+        $service->incrementLikersCount($entity);
+        $service->incrementLikersCount($entity);
 
-        $this->assertEquals(2, $entity->likesCount);
+        $this->assertEquals(2, $entity->likersCount);
     }
 
     /** @test */
@@ -84,11 +84,11 @@ class LikeableServiceTest extends TestCase
         $entity2->like(2);
         $article->like(1);
 
-        $service->removeLikeCountersOfType(Entity::class, 'like');
+        $service->removeLikersCountersOfType(Entity::class, 'like');
 
-        $likeCounters = LikeCounter::all();
+        $likersCounters = LikersCounter::all();
 
-        $this->assertCount(1, $likeCounters);
+        $this->assertCount(1, $likersCounters);
     }
 
     /** @test */
@@ -102,11 +102,11 @@ class LikeableServiceTest extends TestCase
         $entity2->like(2);
         $article->like(1);
 
-        $service->removeLikeCountersOfType('entity-with-morph-map', 'like');
+        $service->removeLikersCountersOfType('entity-with-morph-map', 'like');
 
-        $likeCounters = LikeCounter::all();
+        $likersCounters = LikersCounter::all();
 
-        $this->assertCount(1, $likeCounters);
+        $this->assertCount(1, $likersCounters);
     }
 
     /** @test */
@@ -120,11 +120,11 @@ class LikeableServiceTest extends TestCase
         $entity2->like(2);
         $article->like(1);
 
-        $service->removeLikeCountersOfType(EntityWithMorphMap::class, 'like');
+        $service->removeLikersCountersOfType(EntityWithMorphMap::class, 'like');
 
-        $likeCounters = LikeCounter::all();
+        $likersCounters = LikersCounter::all();
 
-        $this->assertCount(1, $likeCounters);
+        $this->assertCount(1, $likersCounters);
     }
 
     /** @test */
@@ -154,7 +154,7 @@ class LikeableServiceTest extends TestCase
 
         $this->assertCount(1, $entity->likesAndDislikes);
         $this->assertCount(1, $entity->dislikes);
-        $this->assertEquals(1, $entity->dislikesCount);
+        $this->assertEquals(1, $entity->dislikersCount);
     }
 
     /** @test */
@@ -167,6 +167,6 @@ class LikeableServiceTest extends TestCase
 
         $this->assertCount(1, $entity->likesAndDislikes);
         $this->assertCount(1, $entity->likes);
-        $this->assertEquals(1, $entity->likesCount);
+        $this->assertEquals(1, $entity->likersCount);
     }
 }

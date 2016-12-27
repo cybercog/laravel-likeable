@@ -9,14 +9,20 @@
  * file that was distributed with this source code.
  */
 
-use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 /**
  * Class CreateArticleTable.
  */
 class CreateArticleTable extends Migration
 {
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
     public function up()
     {
         Schema::create('article', function (Blueprint $table) {
@@ -26,8 +32,13 @@ class CreateArticleTable extends Migration
         });
     }
 
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
     public function down()
     {
-        Schema::drop('article');
+        Schema::dropIfExists('article');
     }
 }
