@@ -337,8 +337,9 @@ If you discover any security related issues, please email [support@cybercog.su](
 ## Alternatives
 
 - [rtconner/laravel-likeable](https://github.com/rtconner/laravel-likeable)
-- [draperstudio/laravel-likeable](https://github.com/DraperStudio/Laravel-Likeable)
+- [faustbrian/laravel-likeable](https://github.com/faustbrian/Laravel-Likeable)
 - [sukohi/evaluation](https://github.com/SUKOHI/Evaluation)
+- [zvermafia/lavoter](https://github.com/zvermafia/lavoter)
 
 ## License
 
