@@ -3,7 +3,7 @@
 /*
  * This file is part of Laravel Likeable.
  *
- * (c) CyberCog <support@cybercog.su>
+ * (c) Anton Komarev <a.komarev@cybercog.su>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -36,10 +36,10 @@ class LikeObserver
     {
         if ($like->type_id == LikeType::LIKE) {
             event(new ModelWasLiked($like->likeable, $like->user_id));
-            app(LikeableServiceContract::class)->incrementLikesCount($like->likeable, $like->type_id);
+            app(LikeableServiceContract::class)->incrementLikesCount($like->likeable);
         } else {
             event(new ModelWasDisliked($like->likeable, $like->user_id));
-            app(LikeableServiceContract::class)->incrementDislikesCount($like->likeable, $like->type_id);
+            app(LikeableServiceContract::class)->incrementDislikesCount($like->likeable);
         }
     }
 
@@ -53,10 +53,10 @@ class LikeObserver
     {
         if ($like->type_id == LikeType::LIKE) {
             event(new ModelWasUnliked($like->likeable, $like->user_id));
-            app(LikeableServiceContract::class)->decrementLikesCount($like->likeable, $like->type_id);
+            app(LikeableServiceContract::class)->decrementLikesCount($like->likeable);
         } else {
             event(new ModelWasUndisliked($like->likeable, $like->user_id));
-            app(LikeableServiceContract::class)->decrementDislikesCount($like->likeable, $like->type_id);
+            app(LikeableServiceContract::class)->decrementDislikesCount($like->likeable);
         }
     }
 }
