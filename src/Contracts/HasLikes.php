@@ -111,6 +111,13 @@ interface HasLikes
     public function scopeWhereDislikedBy($query, $userId = null);
 
     /**
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @param string $sortDirection
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeSortedByLikesCount($query, $sortDirection = 'desc');
+
+    /**
      * Add a like for model by the given user.
      *
      * @param mixed $userId If null will use currently logged in user.
