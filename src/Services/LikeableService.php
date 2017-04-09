@@ -283,32 +283,17 @@ class LikeableService implements LikeableServiceContract
     }
 
     /**
+     * Fetch records sorted by likes count.
+     *
      * @param \Illuminate\Database\Eloquent\Builder $query
-     * @param \Cog\Likeable\Contracts\HasLikes $model
      * @param string $sortDirection
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function scopeSortedByLikesCount(Builder $query, HasLikesContract $model, $sortDirection = 'desc')
+    public function scopeSortedByLikesCount(Builder $query, $sortDirection = 'desc')
     {
-        return $query
-            ->leftJoin('like_counter', function ($join) use ($model) {
-                $join->on('like_counter.likeable_id', '=', "{$model->getTable()}.{$model->getKeyName()}");
-                $join->on('like_counter.likeable_type', '=', $model->getMorphClass());
-            })
-            ->orderBy('like_counter.count', $sortDirection);
-    }
+        $model = $query->getModel();
 
-    /**
-     * Query all likeable models of provided type sorted by Likes count.
-     *
-     * @param \Cog\Likeable\Contracts\HasLikes $model
-     * @param string $sortDirection
-     * @return \Illuminate\Database\Query\Builder
-     */
-    public function querySortedByLikesCount(HasLikesContract $model, $sortDirection = 'desc')
-    {
-        return \DB::table($model->getTable())
-            ->selectRaw($model->getTable() . '.*, like_counter.count')
+        return $query
             ->leftJoin('like_counter', function ($join) use ($model) {
                 $join->on('like_counter.likeable_id', '=', "{$model->getTable()}.{$model->getKeyName()}");
                 $join->on('like_counter.likeable_type', '=', $model->getMorphClass());

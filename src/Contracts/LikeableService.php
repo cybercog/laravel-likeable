@@ -120,31 +120,23 @@ interface LikeableService
     /**
      * Fetch records that are liked by a given user id.
      *
-     * @param \Illuminate\Database\Query\Builder $query
+     * @param \Illuminate\Database\Eloquent\Builder $query
      * @param string $type
      * @param int|null $userId
-     * @return \Illuminate\Database\Query\Builder
+     * @return \Illuminate\Database\Eloquent\Builder
      *
      * @throws \Cog\Likeable\Exceptions\LikerNotDefinedException
      */
     public function scopeWhereLikedBy(Builder $query, $type, $userId);
 
     /**
+     * Fetch records sorted by likes count.
+     *
      * @param \Illuminate\Database\Eloquent\Builder $query
-     * @param \Cog\Likeable\Contracts\HasLikes $model
      * @param string $sortDirection
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function scopeSortedByLikesCount(Builder $query, HasLikesContract $model, $sortDirection = 'desc');
-
-    /**
-     * Query all likeable models of provided type sorted by Likes count.
-     *
-     * @param \Cog\Likeable\Contracts\HasLikes $model
-     * @param string $sortDirection
-     * @return \Illuminate\Database\Query\Builder
-     */
-    public function querySortedByLikesCount(HasLikesContract $model, $sortDirection = 'desc');
+    public function scopeSortedByLikesCount(Builder $query, $sortDirection = 'desc');
 
     /**
      * Fetch likes counters data.
