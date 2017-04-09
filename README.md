@@ -375,7 +375,7 @@ vendor/bin/phpunit
 
 ## Security
 
-If you discover any security related issues, please email a.komarev@cybercog.su instead of using the issue tracker.
+If you discover any security related issues, please email oss@cybercog.su instead of using the issue tracker.
 
 ## Credits
 
