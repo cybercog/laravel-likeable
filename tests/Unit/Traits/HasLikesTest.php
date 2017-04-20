@@ -546,12 +546,14 @@ class HasLikesTest extends TestCase
         $entityC = factory(Entity::class)->create();
         $entityD = factory(Entity::class)->create();
         for ($i = 0; $i < 3; $i++) {
-            $entityA->like(mt_rand(1, 9999999));
+            $entityA->dislike(mt_rand(1, 9999999));
         }
         for ($i = 0; $i < 1; $i++) {
             $entityB->dislike(mt_rand(1, 9999999));
+            $entityB->likes(mt_rand(1, 9999999));
         }
         for ($i = 0; $i < 5; $i++) {
+            $entityC->dislike(mt_rand(1, 9999999));
             $entityC->like(mt_rand(1, 9999999));
         }
         for ($i = 0; $i < 10; $i++) {
