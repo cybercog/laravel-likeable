@@ -9,30 +9,28 @@
  * file that was distributed with this source code.
  */
 
-namespace Cog\Tests\Laravel\Likeable\Unit\Events;
+namespace Cog\Tests\Laravel\Likeable\Unit\Like\Events;
 
-use Cog\Laravel\Likeable\Like\Events\ModelWasUndisliked;
+use Cog\Laravel\Likeable\Like\Events\ModelWasLiked;
 use Cog\Tests\Laravel\Likeable\Stubs\Models\Entity;
 use Cog\Tests\Laravel\Likeable\TestCase;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 /**
- * Class ModelWasUndislikedTest.
+ * Class ModelWasLikedTest.
  *
- * @package Cog\Tests\Laravel\Likeable\Unit\Events
+ * @package Cog\Tests\Laravel\Likeable\Unit\Like\Events
  */
-class ModelWasUndislikedTest extends TestCase
+class ModelWasLikedTest extends TestCase
 {
     use DatabaseTransactions;
 
     /** @test */
     public function it_can_fire_model_was_liked_event()
     {
-        $this->expectsEvents(ModelWasUndisliked::class);
+        $this->expectsEvents(ModelWasLiked::class);
 
         $entity = factory(Entity::class)->create();
-        $entity->dislike(1);
-
-        $entity->undislike(1);
+        $entity->like(1);
     }
 }
