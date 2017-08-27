@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Cog\Laravel\Likeable\Tests\Stubs\Models;
+namespace Cog\Tests\Laravel\Likeable\Stubs\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 /**
  * Class User.
  *
- * @package Cog\Laravel\Likeable\Tests\Stubs\Models
+ * @package Cog\Tests\Laravel\Likeable\Stubs\Models
  */
 class User extends Authenticatable
 {
