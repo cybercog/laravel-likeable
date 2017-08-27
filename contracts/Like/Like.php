@@ -9,16 +9,17 @@
  * file that was distributed with this source code.
  */
 
-namespace Cog\Contracts\Likeable;
+namespace Cog\Contracts\Likeable\Like;
 
 /**
- * Interface LikeCounter.
+ * Interface Like.
  *
+ * @property \Cog\Contracts\Likeable\Likeable likeable
  * @property int type_id
- * @property int count
- * @package Cog\Contracts\Likeable
+ * @property int user_id
+ * @package Cog\Contracts\Likeable\Like
  */
-interface LikeCounter
+interface Like
 {
     /**
      * Likeable model relation.

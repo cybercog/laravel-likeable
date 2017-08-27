@@ -9,27 +9,27 @@
  * file that was distributed with this source code.
  */
 
-namespace Cog\Laravel\Likeable\Observers;
+namespace Cog\Laravel\Likeable\Like\Observers;
 
-use Cog\Laravel\Likeable\Enums\LikeType;
-use Cog\Laravel\Likeable\Events\ModelWasDisliked;
-use Cog\Laravel\Likeable\Events\ModelWasLiked;
-use Cog\Laravel\Likeable\Events\ModelWasUndisliked;
-use Cog\Laravel\Likeable\Events\ModelWasUnliked;
-use Cog\Contracts\Likeable\Like as LikeContract;
+use Cog\Laravel\Likeable\Like\Enums\LikeType;
+use Cog\Laravel\Likeable\Like\Events\ModelWasDisliked;
+use Cog\Laravel\Likeable\Like\Events\ModelWasLiked;
+use Cog\Laravel\Likeable\Like\Events\ModelWasUndisliked;
+use Cog\Laravel\Likeable\Like\Events\ModelWasUnliked;
+use Cog\Contracts\Likeable\Like\Like as LikeContract;
 use Cog\Contracts\Likeable\LikeableService as LikeableServiceContract;
 
 /**
  * Class LikeObserver.
  *
- * @package Cog\Laravel\Likeable\Observers
+ * @package Cog\Laravel\Likeable\Like\Observers
  */
 class LikeObserver
 {
     /**
      * Handle the created event for the model.
      *
-     * @param \Cog\Contracts\Likeable\Like $like
+     * @param \Cog\Contracts\Likeable\Like\Like $like
      * @return void
      */
     public function created(LikeContract $like)
@@ -46,7 +46,7 @@ class LikeObserver
     /**
      * Handle the deleted event for the model.
      *
-     * @param \Cog\Contracts\Likeable\Like $like
+     * @param \Cog\Contracts\Likeable\Like\Like $like
      * @return void
      */
     public function deleted(LikeContract $like)

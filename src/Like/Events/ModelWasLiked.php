@@ -9,19 +9,19 @@
  * file that was distributed with this source code.
  */
 
-namespace Cog\Laravel\Likeable\Events;
+namespace Cog\Laravel\Likeable\Like\Events;
 
 use Cog\Contracts\Likeable\Likeable as LikeableContract;
 
 /**
- * Class ModelWasDisliked.
+ * Class ModelWasLiked.
  *
- * @package Cog\Laravel\Likeable\Events
+ * @package Cog\Laravel\Likeable\Like\Events
  */
-class ModelWasDisliked
+class ModelWasLiked
 {
     /**
-     * The disliked model.
+     * The liked model.
      *
      * @var \Cog\Contracts\Likeable\Likeable
      */

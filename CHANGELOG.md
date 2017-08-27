@@ -6,9 +6,10 @@ All notable changes to `laravel-likeable` will be documented in this file.
 
 ### Changed
 
-- Contracts extracted to namespace `Cog\Contracts\Likeable`
 - Database table `like` renamed to `likes`
 - Database table `like_counter` renamed to `like_counters`
+- Contracts extracted to namespace `Cog\Contracts\Likeable`
+- `ModelObserver` class renamed to `LikeableObserver`
 
 ## [3.0.0] - 2017-08-24
 

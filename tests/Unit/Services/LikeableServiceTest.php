@@ -11,7 +11,7 @@
 
 namespace Cog\Tests\Laravel\Likeable\Unit\Services;
 
-use Cog\Laravel\Likeable\Models\LikeCounter;
+use Cog\Laravel\Likeable\LikeCounter\Models\LikeCounter;
 use Cog\Contracts\Likeable\LikeableService as LikeableServiceContract;
 use Cog\Laravel\Likeable\Services\LikeableService;
 use Cog\Tests\Laravel\Likeable\Stubs\Models\Article;

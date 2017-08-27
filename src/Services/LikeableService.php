@@ -12,10 +12,10 @@
 namespace Cog\Laravel\Likeable\Services;
 
 use Cog\Contracts\Likeable\Likeable as LikeableContract;
-use Cog\Contracts\Likeable\Like as LikeContract;
+use Cog\Contracts\Likeable\Like\Like as LikeContract;
 use Cog\Contracts\Likeable\LikeableService as LikeableServiceContract;
-use Cog\Contracts\Likeable\LikeCounter as LikeCounterContract;
-use Cog\Laravel\Likeable\Enums\LikeType;
+use Cog\Contracts\Likeable\LikeCounter\LikeCounter as LikeCounterContract;
+use Cog\Laravel\Likeable\Like\Enums\LikeType;
 use Cog\Laravel\Likeable\Exceptions\LikerNotDefinedException;
 use Cog\Laravel\Likeable\Exceptions\LikeTypeInvalidException;
 use Illuminate\Database\Query\JoinClause;
@@ -405,11 +405,11 @@ class LikeableService implements LikeableServiceContract
     protected function getLikeTypeId($type)
     {
         $type = strtoupper($type);
-        if (!defined("\\Cog\\Laravel\\Likeable\\Enums\\LikeType::{$type}")) {
+        if (!defined("\\Cog\\Laravel\\Likeable\\Like\\Enums\\LikeType::{$type}")) {
             throw new LikeTypeInvalidException("Like type `{$type}` not exist");
         }
 
-        return constant("\\Cog\\Laravel\\Likeable\\Enums\\LikeType::{$type}");
+        return constant("\\Cog\\Laravel\\Likeable\\Like\\Enums\\LikeType::{$type}");
     }
 
     /**

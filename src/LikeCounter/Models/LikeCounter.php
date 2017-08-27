@@ -9,34 +9,33 @@
  * file that was distributed with this source code.
  */
 
-namespace Cog\Laravel\Likeable\Models;
+namespace Cog\Laravel\Likeable\LikeCounter\Models;
 
-use Cog\Contracts\Likeable\Like as LikeContract;
+use Cog\Contracts\Likeable\LikeCounter\LikeCounter as LikeCounterContract;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Like.
+ * Class LikeCounter.
  *
- * @property \Cog\Contracts\Likeable\Likeable likeable
  * @property int type_id
- * @property int user_id
- * @package Cog\Laravel\Likeable\Models
+ * @property int count
+ * @package Cog\Laravel\Likeable\LikeCounter\Models
  */
-class Like extends Model implements LikeContract
+class LikeCounter extends Model implements LikeCounterContract
 {
     /**
-     * The name of the "updated at" column.
+     * Indicates if the model should be timestamped.
      *
-     * @var string
+     * @var bool
      */
-    const UPDATED_AT = null;
+    public $timestamps = false;
 
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'likes';
+    protected $table = 'like_counters';
 
     /**
      * The attributes that are mass assignable.
@@ -44,8 +43,17 @@ class Like extends Model implements LikeContract
      * @var array
      */
     protected $fillable = [
-        'user_id',
         'type_id',
+        'count',
+    ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'count' => 'integer',
     ];
 
     /**

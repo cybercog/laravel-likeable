@@ -11,11 +11,11 @@
 
 namespace Cog\Laravel\Likeable\Traits;
 
-use Cog\Contracts\Likeable\Like as LikeContract;
+use Cog\Contracts\Likeable\Like\Like as LikeContract;
 use Cog\Contracts\Likeable\LikeableService as LikeableServiceContract;
-use Cog\Contracts\Likeable\LikeCounter as LikeCounterContract;
-use Cog\Laravel\Likeable\Enums\LikeType;
-use Cog\Laravel\Likeable\Observers\ModelObserver;
+use Cog\Contracts\Likeable\LikeCounter\LikeCounter as LikeCounterContract;
+use Cog\Laravel\Likeable\Like\Enums\LikeType;
+use Cog\Laravel\Likeable\Observers\LikeableObserver;
 use Illuminate\Database\Eloquent\Builder;
 
 /**
@@ -32,7 +32,7 @@ trait Likeable
      */
     public static function bootLikeable()
     {
-        static::observe(new ModelObserver);
+        static::observe(new LikeableObserver);
     }
 
     /**
