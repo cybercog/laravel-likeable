@@ -12,27 +12,27 @@
 namespace Cog\Tests\Laravel\Likeable\Unit\Observers;
 
 use Cog\Contracts\Likeable\Likeable as LikeableContract;
-use Cog\Laravel\Likeable\Models\Like;
-use Cog\Laravel\Likeable\Models\LikeCounter;
-use Cog\Laravel\Likeable\Observers\ModelObserver;
+use Cog\Laravel\Likeable\Like\Models\Like;
+use Cog\Laravel\Likeable\LikeCounter\Models\LikeCounter;
+use Cog\Laravel\Likeable\Observers\LikeableObserver;
 use Cog\Tests\Laravel\Likeable\Stubs\Models\Entity;
 use Cog\Tests\Laravel\Likeable\TestCase;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Mockery;
 
 /**
- * Class ModelObserverTest.
+ * Class LikeableObserverTest.
  *
  * @package Cog\Tests\Laravel\Likeable\Unit\Observers
  */
-class ModelObserverTest extends TestCase
+class LikeableObserverTest extends TestCase
 {
     use DatabaseTransactions;
 
     /** @test */
     public function it_can_call_remove_likes_on_model_deleted()
     {
-        $observer = new ModelObserver;
+        $observer = new LikeableObserver;
         $model = Mockery::mock(LikeableContract::class);
         $model->shouldReceive('removeLikes');
         $observer->deleted($model);
@@ -41,7 +41,7 @@ class ModelObserverTest extends TestCase
     /** @test */
     public function it_can_omit_call_remove_likes_on_model_deleted()
     {
-        $observer = new ModelObserver;
+        $observer = new LikeableObserver;
         $model = Mockery::mock(LikeableContract::class);
         $model->removeLikesOnDelete = false;
         $model->shouldNotHaveReceived('removeLikes');

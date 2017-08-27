@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Cog\Laravel\Likeable\Models;
+namespace Cog\Laravel\Likeable\Like\Models;
 
-use Cog\Contracts\Likeable\Like as LikeContract;
+use Cog\Contracts\Likeable\Like\Like as LikeContract;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -20,7 +20,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property \Cog\Contracts\Likeable\Likeable likeable
  * @property int type_id
  * @property int user_id
- * @package Cog\Laravel\Likeable\Models
+ * @package Cog\Laravel\Likeable\Like\Models
  */
 class Like extends Model implements LikeContract
 {

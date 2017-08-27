@@ -14,11 +14,11 @@ namespace Cog\Laravel\Likeable\Observers;
 use Cog\Contracts\Likeable\Likeable as LikeableContract;
 
 /**
- * Class ModelObserver.
+ * Class LikeableObserver.
  *
- * @package Cog\Laravel\Likeable\Observers
+ * @package Cog\Laravel\Likeable\Like\Observers
  */
-class ModelObserver
+class LikeableObserver
 {
     /**
      * Handle the deleted event for the model.
