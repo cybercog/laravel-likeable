@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-use Cog\Laravel\Likeable\Tests\Stubs\Models\EntityWithMorphMap;
+use Cog\Tests\Laravel\Likeable\Stubs\Models\EntityWithMorphMap;
 use Faker\Generator;
 
 /* @var \Illuminate\Database\Eloquent\Factory $factory */

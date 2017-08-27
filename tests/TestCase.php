@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Cog\Laravel\Likeable\Tests;
+namespace Cog\Tests\Laravel\Likeable;
 
-use Cog\Laravel\Likeable\Tests\Stubs\Models\EntityWithMorphMap;
-use Cog\Laravel\Likeable\Tests\Stubs\Models\User;
+use Cog\Tests\Laravel\Likeable\Stubs\Models\EntityWithMorphMap;
+use Cog\Tests\Laravel\Likeable\Stubs\Models\User;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Facades\File;
 use Mockery;
@@ -21,7 +21,7 @@ use Orchestra\Testbench\TestCase as Orchestra;
 /**
  * Class TestCase.
  *
- * @package Cog\Laravel\Likeable\Tests
+ * @package Cog\Tests\Laravel\Likeable
  */
 abstract class TestCase extends Orchestra
 {
