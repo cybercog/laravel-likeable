@@ -9,18 +9,18 @@
  * file that was distributed with this source code.
  */
 
-namespace Cog\Likeable\Models;
+namespace Cog\Laravel\Likeable\Models;
 
-use Cog\Likeable\Contracts\Like as LikeContract;
+use Cog\Contracts\Likeable\Like as LikeContract;
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Like.
  *
- * @property \Cog\Likeable\Contracts\Likeable likeable
+ * @property \Cog\Contracts\Likeable\Likeable likeable
  * @property int type_id
  * @property int user_id
- * @package Cog\Likeable\Models
+ * @package Cog\Laravel\Likeable\Models
  */
 class Like extends Model implements LikeContract
 {
@@ -29,7 +29,7 @@ class Like extends Model implements LikeContract
      *
      * @var string
      */
-    protected $table = 'like';
+    protected $table = 'likes';
 
     /**
      * The attributes that are mass assignable.

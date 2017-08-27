@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Cog\Likeable\Contracts;
+namespace Cog\Contracts\Likeable;
 
 use Illuminate\Database\Eloquent\Builder;
 
 /**
  * Interface Likeable.
  *
- * @package Cog\Likeable\Contracts
+ * @package Cog\Contracts\Likeable
  */
 interface Likeable
 {
@@ -125,7 +125,7 @@ interface Likeable
      * @param int|null $userId
      * @return \Illuminate\Database\Eloquent\Builder
      *
-     * @throws \Cog\Likeable\Exceptions\LikerNotDefinedException
+     * @throws \Cog\Laravel\Likeable\Exceptions\LikerNotDefinedException
      */
     public function scopeWhereLikedBy(Builder $query, $userId = null);
 
@@ -136,7 +136,7 @@ interface Likeable
      * @param int|null $userId
      * @return \Illuminate\Database\Eloquent\Builder
      *
-     * @throws \Cog\Likeable\Exceptions\LikerNotDefinedException
+     * @throws \Cog\Laravel\Likeable\Exceptions\LikerNotDefinedException
      */
     public function scopeWhereDislikedBy(Builder $query, $userId = null);
 
@@ -164,7 +164,7 @@ interface Likeable
      * @param mixed $userId If null will use currently logged in user.
      * @return void
      *
-     * @throws \Cog\Likeable\Exceptions\LikerNotDefinedException
+     * @throws \Cog\Laravel\Likeable\Exceptions\LikerNotDefinedException
      */
     public function like($userId = null);
 
@@ -174,7 +174,7 @@ interface Likeable
      * @param int|null $userId If null will use currently logged in user.
      * @return void
      *
-     * @throws \Cog\Likeable\Exceptions\LikerNotDefinedException
+     * @throws \Cog\Laravel\Likeable\Exceptions\LikerNotDefinedException
      */
     public function unlike($userId = null);
 
@@ -184,7 +184,7 @@ interface Likeable
      * @param mixed $userId If null will use currently logged in user.
      * @return void
      *
-     * @throws \Cog\Likeable\Exceptions\LikerNotDefinedException
+     * @throws \Cog\Laravel\Likeable\Exceptions\LikerNotDefinedException
      */
     public function likeToggle($userId = null);
 
@@ -209,7 +209,7 @@ interface Likeable
      * @param mixed $userId If null will use currently logged in user.
      * @return void
      *
-     * @throws \Cog\Likeable\Exceptions\LikerNotDefinedException
+     * @throws \Cog\Laravel\Likeable\Exceptions\LikerNotDefinedException
      */
     public function dislike($userId = null);
 
@@ -219,7 +219,7 @@ interface Likeable
      * @param int|null $userId If null will use currently logged in user.
      * @return void
      *
-     * @throws \Cog\Likeable\Exceptions\LikerNotDefinedException
+     * @throws \Cog\Laravel\Likeable\Exceptions\LikerNotDefinedException
      */
     public function undislike($userId = null);
 
@@ -229,7 +229,7 @@ interface Likeable
      * @param mixed $userId If null will use currently logged in user.
      * @return void
      *
-     * @throws \Cog\Likeable\Exceptions\LikerNotDefinedException
+     * @throws \Cog\Laravel\Likeable\Exceptions\LikerNotDefinedException
      */
     public function dislikeToggle($userId = null);
 

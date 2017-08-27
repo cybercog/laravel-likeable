@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Cog\Likeable\Contracts;
+namespace Cog\Contracts\Likeable;
 
 /**
  * Interface HasLikes.
  *
  * @deprecated 3.0
- * @see \Cog\Likeable\Contracts\Likeable
- * @package Cog\Likeable\Contracts
+ * @see \Cog\Contracts\Likeable\Likeable
+ * @package Cog\Contracts\Likeable
  */
 interface HasLikes extends Likeable
 {

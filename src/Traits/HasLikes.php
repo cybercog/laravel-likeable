@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Cog\Likeable\Traits;
+namespace Cog\Laravel\Likeable\Traits;
 
 /**
  * Trait HasLikes.
  *
  * @deprecated 3.0
- * @see \Cog\Likeable\Traits\Likeable
- * @package Cog\Likeable\Traits
+ * @see \Cog\Laravel\Likeable\Traits\Likeable
+ * @package Cog\Laravel\Likeable\Traits
  */
 trait HasLikes
 {
