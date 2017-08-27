@@ -9,15 +9,16 @@
  * file that was distributed with this source code.
  */
 
-namespace Cog\Tests\Laravel\Likeable\Unit\Models;
+namespace Cog\Tests\Laravel\Likeable\Unit\Like\Models;
 
 use Cog\Laravel\Likeable\Like\Models\Like;
+use Cog\Tests\Laravel\Likeable\Stubs\Models\Entity;
 use Cog\Tests\Laravel\Likeable\TestCase;
 
 /**
  * Class LikeTest.
  *
- * @package Cog\Tests\Laravel\Likeable\Unit\Models
+ * @package Cog\Tests\Laravel\Likeable\Unit\Like\Models
  */
 class LikeTest extends TestCase
 {
@@ -39,5 +40,15 @@ class LikeTest extends TestCase
         ]);
 
         $this->assertEquals(2, $like->type_id);
+    }
+
+    /** @test */
+    public function it_can_belong_to_likeable_model()
+    {
+        $entity = factory(Entity::class)->create();
+
+        $entity->like(1);
+
+        $this->assertInstanceOf(Entity::class, Like::first()->likeable);
     }
 }
