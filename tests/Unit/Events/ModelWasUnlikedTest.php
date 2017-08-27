@@ -9,17 +9,17 @@
  * file that was distributed with this source code.
  */
 
-namespace Cog\Likeable\Tests\Unit\Events;
+namespace Cog\Laravel\Likeable\Tests\Unit\Events;
 
-use Cog\Likeable\Events\ModelWasUnliked;
-use Cog\Likeable\Tests\Stubs\Models\Entity;
-use Cog\Likeable\Tests\TestCase;
+use Cog\Laravel\Likeable\Events\ModelWasUnliked;
+use Cog\Laravel\Likeable\Tests\Stubs\Models\Entity;
+use Cog\Laravel\Likeable\Tests\TestCase;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 /**
  * Class ModelWasUnlikedTest.
  *
- * @package Cog\Likeable\Tests\Unit\Events
+ * @package Cog\Laravel\Likeable\Tests\Unit\Events
  */
 class ModelWasUnlikedTest extends TestCase
 {

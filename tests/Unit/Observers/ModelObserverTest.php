@@ -9,21 +9,21 @@
  * file that was distributed with this source code.
  */
 
-namespace Cog\Likeable\Tests\Unit\Observers;
+namespace Cog\Laravel\Likeable\Tests\Unit\Observers;
 
-use Cog\Likeable\Contracts\Likeable as LikeableContract;
-use Cog\Likeable\Models\Like;
-use Cog\Likeable\Models\LikeCounter;
-use Cog\Likeable\Observers\ModelObserver;
-use Cog\Likeable\Tests\Stubs\Models\Entity;
-use Cog\Likeable\Tests\TestCase;
+use Cog\Contracts\Likeable\Likeable as LikeableContract;
+use Cog\Laravel\Likeable\Models\Like;
+use Cog\Laravel\Likeable\Models\LikeCounter;
+use Cog\Laravel\Likeable\Observers\ModelObserver;
+use Cog\Laravel\Likeable\Tests\Stubs\Models\Entity;
+use Cog\Laravel\Likeable\Tests\TestCase;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Mockery;
 
 /**
  * Class ModelObserverTest.
  *
- * @package Cog\Likeable\Tests\Unit\Observers
+ * @package Cog\Laravel\Likeable\Tests\Unit\Observers
  */
 class ModelObserverTest extends TestCase
 {

@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Cog\Likeable\Tests\Unit\Observers;
+namespace Cog\Laravel\Likeable\Tests\Unit\Observers;
 
-use Cog\Likeable\Models\LikeCounter;
-use Cog\Likeable\Tests\Stubs\Models\Article;
-use Cog\Likeable\Tests\Stubs\Models\Entity;
-use Cog\Likeable\Tests\Stubs\Models\EntityWithMorphMap;
-use Cog\Likeable\Tests\Stubs\Models\User;
-use Cog\Likeable\Tests\TestCase;
+use Cog\Laravel\Likeable\Models\LikeCounter;
+use Cog\Laravel\Likeable\Tests\Stubs\Models\Article;
+use Cog\Laravel\Likeable\Tests\Stubs\Models\Entity;
+use Cog\Laravel\Likeable\Tests\Stubs\Models\EntityWithMorphMap;
+use Cog\Laravel\Likeable\Tests\Stubs\Models\User;
+use Cog\Laravel\Likeable\Tests\TestCase;
 use Illuminate\Contracts\Console\Kernel;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Output\BufferedOutput;
@@ -24,7 +24,7 @@ use Symfony\Component\Console\Output\BufferedOutput;
 /**
  * Class LikeableRecountCommandTest.
  *
- * @package Cog\Likeable\Tests\Unit\Console
+ * @package Cog\Laravel\Likeable\Tests\Unit\Console
  */
 class LikeableRecountCommandTest extends TestCase
 {
@@ -471,7 +471,7 @@ class LikeableRecountCommandTest extends TestCase
     public function it_can_throw_model_invalid_exception_on_not_exist_morph_map()
     {
         // TODO: Check if works on older Laravel versions. Otherwise uncomment assertContains on the end.
-        $this->expectException(\Cog\Likeable\Exceptions\ModelInvalidException::class);
+        $this->expectException(\Cog\Laravel\Likeable\Exceptions\ModelInvalidException::class);
 
         $status = $this->kernel->handle(
             $input = new ArrayInput([
@@ -482,14 +482,14 @@ class LikeableRecountCommandTest extends TestCase
         );
 
         $this->assertEquals(1, $status);
-        //$this->assertContains('Cog\Likeable\Exceptions\ModelInvalidException', $output->fetch());
+        //$this->assertContains('Cog\Laravel\Likeable\Exceptions\ModelInvalidException', $output->fetch());
     }
 
     /** @test */
     public function it_can_throw_model_invalid_exception_if_class_not_implemented_has_likes_interface()
     {
         // TODO: Check if works on older Laravel versions. Otherwise uncomment assertContains on the end.
-        $this->expectException(\Cog\Likeable\Exceptions\ModelInvalidException::class);
+        $this->expectException(\Cog\Laravel\Likeable\Exceptions\ModelInvalidException::class);
 
         $status = $this->kernel->handle(
             $input = new ArrayInput([
@@ -500,7 +500,7 @@ class LikeableRecountCommandTest extends TestCase
         );
 
         $this->assertEquals(1, $status);
-        //$this->assertContains('Cog\Likeable\Exceptions\ModelInvalidException', $output->fetch());
+        //$this->assertContains('Cog\Laravel\Likeable\Exceptions\ModelInvalidException', $output->fetch());
     }
 
     public function it_deletes_records_before_recount()

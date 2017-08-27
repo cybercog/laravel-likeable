@@ -9,15 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Cog\Likeable\Tests\Unit\Models;
+namespace Cog\Laravel\Likeable\Tests\Unit\Models;
 
-use Cog\Likeable\Models\Like;
-use Cog\Likeable\Tests\TestCase;
+use Cog\Laravel\Likeable\Models\Like;
+use Cog\Laravel\Likeable\Tests\TestCase;
 
 /**
  * Class LikeTest.
  *
- * @package Cog\Likeable\Tests\Unit\Models
+ * @package Cog\Laravel\Likeable\Tests\Unit\Models
  */
 class LikeTest extends TestCase
 {
