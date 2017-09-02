@@ -67,7 +67,7 @@ abstract class TestCase extends Orchestra
      */
     protected function publishPackageMigrations()
     {
-        $this->artisan('vendor:publish', ['--force' => '']);
+        $this->artisan('vendor:publish', ['--force' => '', '--tag' => 'migrations']);
     }
 
     /**
