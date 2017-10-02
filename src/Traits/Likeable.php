@@ -114,7 +114,7 @@ trait Likeable
     }
 
     /**
-     * Collection of dislikes on this record by the logged in user.
+     * Collection of likes and dislikes on this record by the logged in user.
      *
      * @return \Illuminate\Database\Eloquent\Relations\MorphMany
      */
