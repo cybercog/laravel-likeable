@@ -14,6 +14,7 @@ namespace Cog\Likeable\Tests\Unit;
 use Cog\Likeable\Contracts\Like as LikeContract;
 use Cog\Likeable\Tests\Stubs\Models\Entity;
 use Cog\Likeable\Tests\Stubs\Models\User;
+use Cog\Likeable\Enums\LikeType;
 use Cog\Likeable\Tests\TestCase;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
@@ -419,6 +420,62 @@ class LikeableTest extends TestCase
     }
 
     /** @test */
+    public function it_can_get_userlikes_relation()
+    {
+        $user = factory(User::class)->create();
+        $this->actingAs($user);
+
+        $entity = factory(Entity::class)->create();
+        $entity->like($user->id);
+
+        $this->assertInstanceOf(LikeContract::class, $entity->userLikes->first());
+        $this->assertCount(1, $entity->userLikes);
+        $this->assertEquals($user->id, $entity->userLikes->first()->user_id);
+    }
+
+
+    /** @test */
+    public function it_can_get_userdislikes_relation()
+    {
+        $user = factory(User::class)->create();
+        $this->actingAs($user);
+
+        $entity = factory(Entity::class)->create();
+        $entity->dislike($user->id);
+
+        $this->assertInstanceOf(LikeContract::class, $entity->userDislikes->first());
+        $this->assertCount(1, $entity->userDislikes);
+        $this->assertEquals($user->id, $entity->userDislikes->first()->user_id);
+    }
+
+
+
+    /** @test */
+    public function it_can_get_userlikesanddislikes_relation()
+    {
+        $user = factory(User::class)->create();
+        $this->actingAs($user);
+
+        $likeEntity = factory(Entity::class)->create();
+        $likeEntity->like($user->id);
+
+        $dislikeEntity = factory(Entity::class)->create();
+        $dislikeEntity->dislike($user->id);
+
+        $entities = Entity::with('userLikesAndDislikes');
+
+        $this->assertEquals($user->id, $entities->first()->userLikesAndDislikes[0]->user_id);
+        $this->assertEquals(LikeType::LIKE, $entities->first()->userLikesAndDislikes[0]->type_id);
+
+        $entities = Entity::with('userLikesAndDislikes');
+
+        $this->assertEquals($user->id, $entities->skip(1)->first()->userLikesAndDislikes[0]->user_id);
+        $this->assertEquals(LikeTYpe::DISLIKE, $entities->skip(1)->first()->userLikesAndDislikes[0]->type_id);
+
+    }
+
+
+    /** @test */
     public function it_can_get_dislikes_and_likes_relation()
     {
         $entity = factory(Entity::class)->create();
@@ -441,6 +498,9 @@ class LikeableTest extends TestCase
 
         $this->assertEquals(-1, $entity->likesDiffDislikesCount);
     }
+
+
+
 
     /** @test */
     public function it_can_sort_entities_desc_by_likes_count()
