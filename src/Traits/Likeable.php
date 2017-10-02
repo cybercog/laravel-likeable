@@ -88,10 +88,10 @@ trait Likeable
     }
 
     /**
-    * Collection of likes on this record by the logged in user.
-    *
-    * @return \Illuminate\Database\Eloquent\Relations\MorphMany
-    */
+     * Collection of likes on this record by the logged in user.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
+     */
     public function userLikes()
     {
         return $this->likesAndDislikes()->where([
@@ -101,10 +101,10 @@ trait Likeable
     }
 
     /**
-    * Collection of dislikes on this record by the logged in user.
-    *
-    * @return \Illuminate\Database\Eloquent\Relations\MorphMany
-    */
+     * Collection of dislikes on this record by the logged in user.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
+     */
     public function userDislikes()
     {
         return $this->likesAndDislikes()->where([
@@ -114,10 +114,10 @@ trait Likeable
     }
 
     /**
-    * Collection of dislikes on this record by the logged in user.
-    *
-    * @return \Illuminate\Database\Eloquent\Relations\MorphMany
-    */
+     * Collection of dislikes on this record by the logged in user.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
+     */
     public function userLikesAndDislikes()
     {
         return $this->likesAndDislikes()->where([
