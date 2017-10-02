@@ -433,7 +433,6 @@ class LikeableTest extends TestCase
         $this->assertEquals($user->id, $entity->userLikes->first()->user_id);
     }
 
-
     /** @test */
     public function it_can_get_userdislikes_relation()
     {
@@ -447,8 +446,6 @@ class LikeableTest extends TestCase
         $this->assertCount(1, $entity->userDislikes);
         $this->assertEquals($user->id, $entity->userDislikes->first()->user_id);
     }
-
-
 
     /** @test */
     public function it_can_get_userlikesanddislikes_relation()
@@ -474,7 +471,6 @@ class LikeableTest extends TestCase
 
     }
 
-
     /** @test */
     public function it_can_get_dislikes_and_likes_relation()
     {
@@ -498,9 +494,6 @@ class LikeableTest extends TestCase
 
         $this->assertEquals(-1, $entity->likesDiffDislikesCount);
     }
-
-
-
 
     /** @test */
     public function it_can_sort_entities_desc_by_likes_count()

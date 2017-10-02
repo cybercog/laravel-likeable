@@ -96,10 +96,9 @@ trait Likeable
     {
         return $this->likesAndDislikes()->where([
             'type_id' => LikeType::LIKE,
-            'user_id' => auth()->id()
+            'user_id' => auth()->id(),
         ]);
     }
-
 
     /**
     * Collection of dislikes on this record by the logged in user.
@@ -110,10 +109,9 @@ trait Likeable
     {
         return $this->likesAndDislikes()->where([
             'type_id' => LikeType::DISLIKE,
-            'user_id' => auth()->id()
+            'user_id' => auth()->id(),
         ]);
     }
-
 
     /**
     * Collection of dislikes on this record by the logged in user.
@@ -123,7 +121,7 @@ trait Likeable
     public function userLikesAndDislikes()
     {
         return $this->likesAndDislikes()->where([
-            'user_id' => auth()->id()
+            'user_id' => auth()->id(),
         ]);
     }
 
