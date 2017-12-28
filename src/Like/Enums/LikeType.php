@@ -9,15 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Cog\Laravel\Likeable\Exceptions;
-
-use Exception;
+namespace Cog\Laravel\Likeable\Like\Enums;
 
 /**
- * Class LikerNotDefinedException.
+ * Class LikeType.
  *
- * @package Cog\Likable\Exceptions
+ * @package Cog\Laravel\Likeable\Like\Enums
  */
-class LikerNotDefinedException extends Exception
+class LikeType
 {
+    const LIKE = 'like';
+    const DISLIKE = 'dislike';
 }

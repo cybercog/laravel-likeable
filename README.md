@@ -64,7 +64,7 @@ Include the service provider within `app/config/app.php`.
 
 ```php
 'providers' => [
-    Cog\Likeable\Providers\LikeableServiceProvider::class,
+    Cog\Laravel\Likeable\Providers\LikeableServiceProvider::class,
 ],
 ```
 
@@ -73,7 +73,7 @@ Include the service provider within `app/config/app.php`.
 At last you need to publish and run database migrations.
 
 ```sh
-$ php artisan vendor:publish --provider="Cog\Likeable\Providers\LikeableServiceProvider" --tag=migrations
+$ php artisan vendor:publish --provider="Cog\Laravel\Likeable\Providers\LikeableServiceProvider" --tag=migrations
 $ php artisan migrate
 ```
 
@@ -84,8 +84,8 @@ $ php artisan migrate
 Use `Likeable` contract in model which will get likes behavior and implement it or just use `Likeable` trait. 
 
 ```php
-use Cog\Likeable\Contracts\Likeable as LikeableContract;
-use Cog\Likeable\Traits\Likeable;
+use Cog\Contracts\Likeable\Likeable as LikeableContract;
+use Cog\Laravel\Likeable\Traits\Likeable;
 use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model implements LikeableContract
@@ -303,13 +303,13 @@ $sortedArticles = Article::orderByDislikesCount('asc')->get();
 
 ### Events
 
-On each like added `\Cog\Likeable\Events\ModelWasLiked` event is fired.
+On each like added `\Cog\Laravel\Likeable\Like\Events\ModelWasLiked` event is fired.
 
-On each like removed `\Cog\Likeable\Events\ModelWasUnliked` event is fired.
+On each like removed `\Cog\Laravel\Likeable\Like\Events\ModelWasUnliked` event is fired.
 
-On each dislike added `\Cog\Likeable\Events\ModelWasDisliked` event is fired.
+On each dislike added `\Cog\Laravel\Likeable\Like\Events\ModelWasDisliked` event is fired.
 
-On each dislike removed `\Cog\Likeable\Events\ModelWasUndisliked` event is fired.
+On each dislike removed `\Cog\Laravel\Likeable\Like\Events\ModelWasUndisliked` event is fired.
 
 ### Console commands
 
@@ -383,7 +383,7 @@ To make it you should use container [binding interfaces to implementations](http
 
 ```php
 $this->app->bind(
-    \Cog\Likeable\Contracts\Like::class,
+    \Cog\Contracts\Likeable\Like\Like::class,
     \App\Models\CustomLike::class
 );
 ```
@@ -392,7 +392,7 @@ $this->app->bind(
 
 ```php
 $this->app->singleton(
-    \Cog\Likeable\Contracts\LikeableService::class,
+    \Cog\Contracts\Likeable\LikeableService::class,
     \App\Services\CustomService::class
 );
 ```
@@ -400,8 +400,8 @@ $this->app->singleton(
 After that your `CustomLike` and `CustomService` classes will be instantiable with helper method `app()`.
 
 ```php
-$model = app(\Cog\Likeable\Contracts\Like::class);
-$service = app(\Cog\Likeable\Contracts\LikeableService::class);
+$model = app(\Cog\Contracts\Likeable\Like\Like::class);
+$service = app(\Cog\Contracts\Likeable\LikeableService::class);
 ```
 
 ## Change log
@@ -447,5 +447,8 @@ If you discover any security related issues, please email open@cybercog.su inste
 ## About CyberCog
 
 [CyberCog](http://www.cybercog.ru) is a Social Unity of enthusiasts. Research best solutions in product & software development is our passion.
+
+- [Follow us on Twitter](https://twitter.com/cybercog)
+- [Read our articles on Medium](https://medium.com/cybercog)
 
 <a href="http://cybercog.ru"><img src="https://cloud.githubusercontent.com/assets/1849174/18418932/e9edb390-7860-11e6-8a43-aa3fad524664.png" alt="CyberCog"></a>

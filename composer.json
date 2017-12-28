@@ -51,12 +51,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Cog\\Likeable\\": "src/"
+            "Cog\\Contracts\\Likeable\\": "contracts/",
+            "Cog\\Laravel\\Likeable\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Cog\\Likeable\\Tests\\": "tests/"
+            "Cog\\Tests\\Likeable\\": "tests/"
         }
     },
     "scripts": {

@@ -9,16 +9,16 @@
  * file that was distributed with this source code.
  */
 
-namespace Cog\Likeable\Tests\Stubs\Models;
+namespace Cog\Tests\Laravel\Likeable\Stubs\Models;
 
-use Cog\Likeable\Contracts\Likeable as LikeableContract;
-use Cog\Likeable\Traits\Likeable;
+use Cog\Contracts\Likeable\Likeable as LikeableContract;
+use Cog\Laravel\Likeable\Traits\Likeable;
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class Entity.
  *
- * @package Cog\Likeable\Tests\Stubs\Models
+ * @package Cog\Tests\Laravel\Likeable\Stubs\Models
  */
 class Entity extends Model implements LikeableContract
 {

@@ -9,19 +9,19 @@
  * file that was distributed with this source code.
  */
 
-namespace Cog\Likeable\Tests\Unit;
+namespace Cog\Tests\Laravel\Likeable\Unit;
 
-use Cog\Likeable\Contracts\Like as LikeContract;
-use Cog\Likeable\Tests\Stubs\Models\Entity;
-use Cog\Likeable\Tests\Stubs\Models\User;
-use Cog\Likeable\Enums\LikeType;
-use Cog\Likeable\Tests\TestCase;
+use Cog\Contracts\Likeable\Like\Like as LikeContract;
+use Cog\Laravel\Likeable\Like\Enums\LikeType;
+use Cog\Tests\Laravel\Likeable\Stubs\Models\Entity;
+use Cog\Tests\Laravel\Likeable\Stubs\Models\User;
+use Cog\Tests\Laravel\Likeable\TestCase;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 /**
  * Class LikeableTest.
  *
- * @package Cog\Likeable\Tests\Unit\Traits
+ * @package Cog\Tests\Laravel\Likeable\Unit\Traits
  */
 class LikeableTest extends TestCase
 {
