@@ -72,6 +72,9 @@
             ]
         }
     },
+    "suggest": {
+        "cybercog/laravel-love": "Completely refactored Laravel Likeable package."
+    },
     "minimum-stability": "dev",
     "prefer-stable" : true
 }
