@@ -10,7 +10,7 @@
 ## Attention
 
 **This package is abandoned!
-Development was moved to [Laravel Love package](https://github.com/cybercog/laravel-love)!**
+Development moved to [Laravel Love package](https://github.com/cybercog/laravel-love)!**
 
 If you already have installed version of Laravel Likeable you can use [Laravel Love Migration Guide](https://github.com/cybercog/laravel-love/blob/master/UPGRADING.md#from-v3-to-v4). 
 
