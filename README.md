@@ -7,6 +7,13 @@
 <a href="https://github.com/cybercog/laravel-likeable/blob/master/LICENSE"><img src="https://img.shields.io/github/license/cybercog/laravel-likeable.svg?style=flat-square" alt="License"></a>
 </p>
 
+## Attention
+
+**This package is abandoned!
+Development was moved to [Laravel Love package](https://github.com/cybercog/laravel-love)!**
+
+If you already have installed version of Laravel Likeable you can use [Laravel Love Migration Guide](https://github.com/cybercog/laravel-love/blob/master/UPGRADING.md#from-v3-to-v4). 
+
 ## Introduction
 
 Laravel Likeable simplify management of Eloquent model's likes & dislikes. Make any model `likeable` & `dislikeable` in a minutes!
@@ -422,6 +429,7 @@ If you discover any security related issues, please email open@cybercog.su inste
 
 ## Alternatives
 
+- [cybercog/laravel-love](https://github.com/cybercog/laravel-love)
 - [rtconner/laravel-likeable](https://github.com/rtconner/laravel-likeable)
 - [faustbrian/laravel-likeable](https://github.com/faustbrian/Laravel-Likeable)
 - [sukohi/evaluation](https://github.com/SUKOHI/Evaluation)
