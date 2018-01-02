@@ -1,3 +1,5 @@
+# Laravel Likeable
+
 ![cog-laravel-likeable](https://user-images.githubusercontent.com/1849174/28696355-c4a06a96-733d-11e7-8cc5-af5d60bf5e20.png)
 
 <p align="center">
@@ -9,7 +11,7 @@
 
 ## Attention
 
-**This package is abandoned!
+**This package is abandoned and no longer maintained. 
 Development moved to [Laravel Love package](https://github.com/cybercog/laravel-love)!**
 
 If you already have installed version of Laravel Likeable you can use [Laravel Love Migration Guide](https://github.com/cybercog/laravel-love/blob/master/UPGRADING.md#from-v3-to-v4). 
@@ -444,5 +446,8 @@ If you discover any security related issues, please email open@cybercog.su inste
 ## About CyberCog
 
 [CyberCog](http://www.cybercog.ru) is a Social Unity of enthusiasts. Research best solutions in product & software development is our passion.
+
+- [Follow us on Twitter](https://twitter.com/cybercog)
+- [Read our articles on Medium](https://medium.com/cybercog)
 
 <a href="http://cybercog.ru"><img src="https://cloud.githubusercontent.com/assets/1849174/18418932/e9edb390-7860-11e6-8a43-aa3fad524664.png" alt="CyberCog"></a>
