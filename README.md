@@ -441,7 +441,7 @@ If you discover any security related issues, please email open@cybercog.su inste
 
 ## License
 
-- `Laravel Likeable` package is open-sourced software licensed under the [MIT license](LICENSE).
+- `Laravel Likeable` package is open-sourced software licensed under the [MIT license](LICENSE) by Anton Komarev.
 
 ## About CyberCog
 
